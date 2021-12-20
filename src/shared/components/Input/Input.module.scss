@@ -1,0 +1,60 @@
+@import "../../styles/common.scss";
+
+.formLabel {
+  display: block;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: getColor("text-secondary");
+  transition: color 250ms linear;
+
+  @include tablet {
+    font-size: 14px;
+  }
+}
+
+.formInput {
+  width: 280px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: getColor("text-primary");
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid getColor("input-line");
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid getColor("accent");
+    transition: border-color 250ms linear;
+  }
+
+  @include tablet {
+    width: 429px;
+    font-size: 18px;
+  }
+  @include desktop {
+  }
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: getColor("text-secondary");
+    margin: 0;
+    padding: 8px;
+    border: none;
+
+    @include tablet {
+      font-size: 18px;
+    }
+    @include desktop {
+      // width: 429px;
+    }
+  }
+}
+.isHidden {
+  color: transparent;
+}

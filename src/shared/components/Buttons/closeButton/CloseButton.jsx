@@ -1,31 +1,33 @@
-import styles from "./EditButton.module.scss";
+import styles from "./CloseButton.module.scss";
 import PropTypes from "prop-types";
 
 const types = {
-  primary: styles.EditButtonPrimary,
-  secondary: styles.EditButtonSecondary,
+  primary: styles.CloseButtonPrimary,
+  secondary: styles.CloseButtonSecondary,
 };
 
-const EditButton = ({ className, onClick, variant, type }) => {
+const CloseButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.EditButton} ${selectedClassName} ${className}`}
-    ></button>
+      className={`${styles.button} ${styles.CloseButton} ${selectedClassName} ${className}`}
+    >
+      +
+    </button>
   );
 };
-export default EditButton;
+export default CloseButton;
 
-EditButton.defaultProps = {
+CloseButton.defaultProps = {
   variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
 };
 
-EditButton.propTypes = {
+CloseButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
   variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,
