@@ -1,0 +1,22 @@
+// @import "../../../styles/common.scss";
+
+.LogOutButton {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &Primary {
+    background-image: url("../../../../assets/btnIcons/logout.png");
+    background-size: cover;
+  }
+  &Secondary {
+    background-image: url("../../../../assets/btnIcons/logout.svg");
+    background-size: 18px 18px;
+  }
+}

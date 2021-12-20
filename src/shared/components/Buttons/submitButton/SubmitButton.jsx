@@ -1,12 +1,12 @@
-import styles from "./AddButton.module.scss";
+import styles from "./SubmitButton.module.scss";
 import PropTypes from "prop-types";
 
 const types = {
-  primary: styles.AddButtonPrimary,
-  secondary: styles.AddButtonSecondary,
+  primary: styles.SubmitButtonPrimary,
+  secondary: styles.SubmitButtonSecondary,
 };
 
-const AddButton = ({ className, text, onClick, variant, type }) => {
+const SubmitButton = ({ className, text, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
@@ -18,16 +18,17 @@ const AddButton = ({ className, text, onClick, variant, type }) => {
     </button>
   );
 };
-export default AddButton;
+export default SubmitButton;
 
-AddButton.defaultProps = {
+SubmitButton.defaultProps = {
+  text: "submit",
   variant: "primary",
   className: "",
-  type: "button",
+  type: "submit",
   onClick: () => {},
 };
 
-AddButton.propTypes = {
+SubmitButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
   variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,

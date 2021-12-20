@@ -1,31 +1,31 @@
-import styles from "./EditButton.module.scss";
+import styles from "./GraphicButton.module.scss";
 import PropTypes from "prop-types";
 
 const types = {
-  primary: styles.EditButtonPrimary,
-  secondary: styles.EditButtonSecondary,
+  primary: styles.GraphicButtonPrimary,
+  secondary: styles.GraphicButtonSecondary,
 };
 
-const EditButton = ({ className, onClick, variant, type }) => {
+const GraphicButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.EditButton} ${selectedClassName} ${className}`}
+      className={`${styles.button} ${selectedClassName} ${className}`}
     ></button>
   );
 };
-export default EditButton;
+export default GraphicButton;
 
-EditButton.defaultProps = {
+GraphicButton.defaultProps = {
   variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
 };
 
-EditButton.propTypes = {
+GraphicButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
   variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,

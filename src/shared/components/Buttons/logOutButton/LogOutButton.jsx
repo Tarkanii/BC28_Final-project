@@ -1,31 +1,31 @@
-import styles from "./EditButton.module.scss";
+import styles from "./LogOutButton.module.scss";
 import PropTypes from "prop-types";
 
 const types = {
-  primary: styles.EditButtonPrimary,
-  secondary: styles.EditButtonSecondary,
+  primary: styles.LogOutButtonPrimary,
+  secondary: styles.LogOutButtonSecondary,
 };
 
-const EditButton = ({ className, onClick, variant, type }) => {
+const LogOutButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.EditButton} ${selectedClassName} ${className}`}
+      className={`${styles.button} ${styles.LogOutButton} ${selectedClassName} ${className}`}
     ></button>
   );
 };
-export default EditButton;
+export default LogOutButton;
 
-EditButton.defaultProps = {
+LogOutButton.defaultProps = {
   variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
 };
 
-EditButton.propTypes = {
+LogOutButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
   variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,

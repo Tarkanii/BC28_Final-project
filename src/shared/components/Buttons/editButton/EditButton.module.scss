@@ -1,0 +1,19 @@
+// @import "../../../styles/common.scss";
+
+.EditButton {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../../../assets/btnIcons/editBtn_2x.png");
+
+  //   &Primary {
+  //   }
+  //   &Secondary {
+  //   }
+}
