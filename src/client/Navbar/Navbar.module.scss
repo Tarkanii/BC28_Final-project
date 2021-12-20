@@ -22,3 +22,26 @@
     padding-bottom: 19px;
   }
 }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.userName {
+  margin-right: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: getColor("text-title");
+  @include tablet {
+    margin-right: 77px;
+  }
+}
