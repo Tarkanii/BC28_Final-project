@@ -3,17 +3,15 @@
 .AddButtonPrimary {
   width: 44px;
   height: 44px;
-  display: flex;
-  box-shadow: 0px 3px 4px 0px #ff6b084d;
-  font-family: "Times New Roman", "Montserrat", sans-serif;
-  font-weight: 200;
-  font-size: 43px;
-  border-radius: 50%;
+  padding: 0;
   cursor: pointer;
-  text-decoration: none;
-  border-style: none;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  border-radius: 50%;
   background-color: getColor("accent");
-  color: #ffffff;
+  box-shadow: 0px 3px 4px 0px #ff6b084d;
+  background-image: url("../../../../assets/btnIcons/add.svg");
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(45deg);
 }

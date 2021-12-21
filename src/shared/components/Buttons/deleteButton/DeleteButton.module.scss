@@ -1,4 +1,4 @@
-// @import "../../../styles/common.scss";
+@import "../../../styles/common.scss";
 
 .DeleteButton {
   padding: 0;
@@ -14,12 +14,16 @@
   &Primary {
     width: 30px;
     height: 30px;
-    background-image: url("../../../../assets/btnIcons/trash-white.png");
-    background-color: grey;
+    background-image: url("../../../../assets/btnIcons/delete-white.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    fill: white;
+    // background-color: grey;
   }
   &Secondary {
     width: 20px;
     height: 20px;
-    background-image: url("../../../../assets/btnIcons/trash-grey.png");
+    background-image: url("../../../../assets/btnIcons/delete-grey.svg");
   }
 }

@@ -9,9 +9,11 @@ function Sidebar({ item = "sprint" }) {
   return (
     <div className={styles.sidebar__wrapper}>
       <a href="" className={styles.sidebar__goBackLink}>
-        <span>&#8592;</span> {title}
+        <svg className={styles.sidebar__goBackArrow}>
+          <use href="#arrowback" />
+        </svg>
+        {title}
       </a>
-
       <ul className={styles.sidebar__list}>
         <ListElement name="Sprint Burndown Chart 1" />
         <ListElement name="Sprint Burndown Chart 2" />
