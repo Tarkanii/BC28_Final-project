@@ -1,6 +1,6 @@
 import "./App.scss";
 import Navbar from "./client/Navbar";
-import Buttons from "./shared/components/Buttons";
+import { DeleteButton } from "./shared/components/Buttons";
 
 function App() {
   return (
