@@ -5,8 +5,8 @@ import Buttons from "./shared/components/Buttons";
 function App() {
   return (
     <div className="App">
-      {/* <Buttons />
-      <Navbar /> */}
+      {/* <Buttons /> */}
+      <Navbar />
     </div>
   );
 }
