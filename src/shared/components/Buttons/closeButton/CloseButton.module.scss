@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Times New Roman", montserrat, serif;
+  font-family: "Times New Roman", "Montserrat", serif;
   font-weight: 400;
   width: 20px;
   height: 20px;
@@ -12,6 +12,5 @@
   background: transparent;
   border: none;
   transform: rotate(45deg);
-  // border: solid 1px black;
   color: #181c27;
 }

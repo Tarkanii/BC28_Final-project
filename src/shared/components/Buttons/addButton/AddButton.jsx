@@ -14,7 +14,7 @@ const AddButton = ({ className, text, onClick, variant, type }) => {
       onClick={onClick}
       className={`${styles.button} ${selectedClassName} ${className}`}
     >
-      {text}
+      +
     </button>
   );
 };
