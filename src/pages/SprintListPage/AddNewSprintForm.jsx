@@ -3,19 +3,26 @@ import { useState } from "react";
 import useForm from "../../shared/hooks/useForm";
 import styles from "./SprintListPage.module.scss";
 import { SubmitButton } from "../../shared/components/Buttons";
+import Datepicker from "../../shared/components/Datepicker/Datepicker";
 
 const initialState = {
   name: "",
   duration: "",
+  previous: false,
+  date: "",
 };
 
 const AddNewSprintForm = () => {
   const [checked, setChecked] = useState(false);
-  const [data, handleChange, handleSubmit] = useForm(initialState);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  const [data, handleChange, handleSubmit] = useForm(initialState, onSubmit);
 
   const toggleCheck = () => {
     setChecked(!checked);
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -25,6 +32,7 @@ const AddNewSprintForm = () => {
             <Input
               value={data.name}
               onChange={handleChange}
+              name="name"
               placeholder="The name of the sprint"
             />
           </div>
@@ -40,9 +48,12 @@ const AddNewSprintForm = () => {
               <span className={styles.RadioText}>Previous days</span>
             </label>
           </div>
-          <div className={styles.SprintInput}>
+
+          <div className={styles.SprintInputDate}>
+            <Datepicker onChange={handleChange} />
             <Input
               value={data.duration}
+              name="duration"
               onChange={handleChange}
               placeholder="Duration"
             />
