@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       {/* <SprintListPage /> */}
       <ProjectListPage/>
-      <RegisterPage />
+      {/* <RegisterPage /> */}
       {/* <Sidebar />
       <Buttons />
       <Inputs />

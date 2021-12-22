@@ -1,9 +1,14 @@
 import ProjectItems from "./ProjectItems";
 import s from "./ProjectListPage.module.scss";
 import AddButton from "../../shared/components/Buttons/addButton";
+import CreateProject from "./CreateProject/CreateProject";
+import { useState } from "react";
 
 export default function ProjectListPage() {
-  const onCLick = () => {};
+  const [isOpen, setIsOpen] = useState(false)
+  const onCLick = () => {
+    setIsOpen(!isOpen)
+  };
 
   const arr = [
     { title: "Project 1", description: "Lorem ipsum dolor sit" },
@@ -16,11 +21,9 @@ export default function ProjectListPage() {
   ];
   return (
     <div className="container">
-      {/* <div className={s.projectContainer}> */}
       <div className={s.createContainer}>
       <h2 className={s.title}>Проекти</h2>
-      
-      <AddButton className={s.Addbtn}  variant="item" type="item"/>
+      <AddButton className={s.Addbtn}  variant="item" type="button" onClick={onCLick}/>
       <h3 className={s.createTitle}>Створити проект</h3>
       </div>
       <ul className={s.list}>
@@ -28,9 +31,7 @@ export default function ProjectListPage() {
           <ProjectItems elem={el}/>
         ))}
       </ul>
-     
-
-      {/* </div> */}
+     { isOpen && <CreateProject onClick={onCLick}/>}
     </div>
   );
 }
