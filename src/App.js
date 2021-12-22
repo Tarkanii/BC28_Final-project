@@ -6,7 +6,13 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes />
+      {/* <SprintListPage /> */}
+      <ProjectListPage />
+      <RegisterPage />
+      {/* <Sidebar />
+      <Buttons />
+      <Inputs />
+      <Datepicker /> */}
     </div>
   );
 }
