@@ -1,12 +1,12 @@
 import styles from "./SidebarItem.module.scss";
 
-const ListElement = ({ name = "init name" }) => {
+const SidebarItem = ({ name = "init name" }) => {
   return (
-    <li className={styles.sprint}>
-      <div className={styles.sprint__block}></div>
+    <li className={styles.item}>
+      <div className={styles.item__block}></div>
       <span>{name}</span>
     </li>
   );
 };
 
-export default ListElement;
+export default SidebarItem;
