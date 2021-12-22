@@ -1,25 +1,23 @@
 import styles from "./GraphicButton.module.scss";
 import PropTypes from "prop-types";
+import svg from "../../../../assets/btnIcons/sprite.svg";
 
-const types = {
-  primary: styles.GraphicButtonPrimary,
-  secondary: styles.GraphicButtonSecondary,
-};
-
-const GraphicButton = ({ className, onClick, variant, type }) => {
-  const selectedClassName = types[variant];
+const GraphicButton = ({ className, onClick, type }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${selectedClassName} ${className}`}
-    ></button>
+      className={`${styles.button} ${styles.graphicButton} ${className}`}
+    >
+      <svg className={styles.graphicIcon}>
+        <use href={`${svg}#analytics`}></use>
+      </svg>
+    </button>
   );
 };
 export default GraphicButton;
 
 GraphicButton.defaultProps = {
-  variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
@@ -27,7 +25,6 @@ GraphicButton.defaultProps = {
 
 GraphicButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
-  variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
 };

@@ -1,19 +1,22 @@
 import styles from "./LogOutButton.module.scss";
 import PropTypes from "prop-types";
+import svg from "../../../../assets/btnIcons/sprite.svg";
+import useMedia from "../../../hooks/useMedia";
 
-const types = {
-  primary: styles.LogOutButtonPrimary,
-  secondary: styles.LogOutButtonSecondary,
-};
-
-const LogOutButton = ({ className, onClick, variant, type }) => {
-  const selectedClassName = types[variant];
+const LogOutButton = ({ className, onClick, type }) => {
+  const { MOB } = useMedia();
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.LogOutButton} ${selectedClassName} ${className}`}
-    ></button>
+      className={`${styles.button} ${styles.LogOutButton} ${className}`}
+    >
+      <svg className={styles.logoutIcon}>
+        <use
+          href={`${svg}${!MOB ? "#logoutPrimary" : "#logoutSecondary"}`}
+        ></use>
+      </svg>
+    </button>
   );
 };
 export default LogOutButton;

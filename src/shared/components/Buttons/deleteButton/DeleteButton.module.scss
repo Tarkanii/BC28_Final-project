@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @import "../../../styles/common.scss";
 
+=======
+>>>>>>> dev
 .DeleteButton {
   padding: 0;
   width: 30px;
@@ -8,22 +11,14 @@
   cursor: pointer;
   border: none;
   background: transparent;
-  background-size: cover;
-  background-repeat: no-repeat;
+}
 
-  &Primary {
-    width: 30px;
-    height: 30px;
-    background-image: url("../../../../assets/btnIcons/delete-white.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    fill: white;
-    // background-color: grey;
-  }
-  &Secondary {
-    width: 20px;
-    height: 20px;
-    background-image: url("../../../../assets/btnIcons/delete-grey.svg");
-  }
+.Secondary {
+  width: 20px;
+  height: 20px;
+}
+
+.Primary {
+  width: 30px;
+  height: 30px;
 }

@@ -22,17 +22,17 @@ function Buttons() {
       <p>Submit Button h 44 px</p>
       <SubmitButton text="Register" />
       <p>Add Button 44х44 px</p>
-      <AddButton text="+" />
+      <AddButton variant="member" />
+      <p>AddMember Button 20x20</p>
+      <AddButton variant="item" />
       <p>Graphic Button 44х44 px</p>
       <GraphicButton />
       <p>Delete Button primary 30х30 px</p>
       <DeleteButton variant="primary" />
       <p>Delete Button secondary 20х20 px</p>
       <DeleteButton variant="secondary" />
-      <p>log Out Button primary 30х30 px</p>
-      <LogOutButton variant="primary" />
-      <p>log Out Button secondary 30х30 px</p>
-      <LogOutButton variant="secondary" />
+      <p>log Out Button 30х30 px</p>
+      <LogOutButton />
       <p>Edit Button 20х20 px</p>
       <EditButton />
       <p>Close Button 20х20 px</p>
