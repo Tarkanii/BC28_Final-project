@@ -3,6 +3,7 @@ import authOperations from "../../redux/auth/auth-operations";
 import { Link } from "react-router-dom";
 import useForm from "../../shared/hooks/useForm";
 import styles from "./RegisterForm.module.scss";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const initialState = {
   email: "",
@@ -12,7 +13,9 @@ const initialState = {
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const onSubmit = (values) => {
-    dispatch(authOperations.register(values));
+    if (values.password === values.passwordCheck){
+    return dispatch(authOperations.register({email:values.email, password:values.password}));}
+    Notify.failure("Password doesn't match");
   };
   const [data, handleChange, handleSubmit] = useForm(initialState, onSubmit);
 
