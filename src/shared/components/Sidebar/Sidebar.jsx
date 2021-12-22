@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons";
 import styles from "./Sidebar.module.scss";
 import svg from "../../../assets/btnIcons/sprite.svg";
 
-function Sidebar({ item = "init item", children }) {
+function Sidebar({ item = "init item", children = `No ${item} added` }) {
   const title = `Show ${item}s`;
 
   return (
@@ -21,8 +21,8 @@ function Sidebar({ item = "init item", children }) {
       >
         {children}
       </ul>
-      <div className="sidebar__footer">
-        <AddButton variant="item" />
+      <div className={styles.sidebar__footer}>
+        <AddButton className={styles.sidebar__AddBtn} variant="item" />
         <p className={styles.sidebar__subscription}>Create a {item}</p>
       </div>
     </div>
