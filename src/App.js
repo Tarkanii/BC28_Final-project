@@ -1,15 +1,16 @@
 import "./App.scss";
 import Navbar from "./client/Navbar";
-// import Inputs from "./shared/components/Input";
-// import Buttons from "./shared/components/Buttons";
-// import Sidebar from "./shared/components/Sidebar";
-// import Datepicker from "./shared/components/Datepicker";
+import SprintListPage from "./pages/SprintListPage";
+import ProjectListPage from './pages/ProjectListPage'
 import RegisterPage from "./pages/RegisterPage"
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      {/* <SprintListPage /> */}
+      <ProjectListPage/>
       <RegisterPage />
       {/* <Sidebar />
       <Buttons />
