@@ -1,5 +1,6 @@
 import styles from "./DeleteButton.module.scss";
 import PropTypes from "prop-types";
+// import svg from "../../../../assets/btnIcons/sprite.svg";
 
 const types = {
   primary: styles.DeleteButtonPrimary,
