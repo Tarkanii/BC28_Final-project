@@ -1,20 +1,27 @@
 import styles from "./AddButton.module.scss";
+import svg from "../../../../assets/btnIcons/sprite.svg";
 import PropTypes from "prop-types";
 
 const types = {
-  primary: styles.AddButtonPrimary,
-  secondary: styles.AddButtonSecondary,
+  item: styles.item,
+  member: styles.member,
 };
 
-const AddButton = ({ className, text, onClick, variant, type }) => {
+const AddButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${selectedClassName} ${className}`}
+      className={`${styles.button} ${
+        variant === "item" ? styles.addButton : styles.addMember
+      } ${className}`}
     >
-      {text}
+      <svg className={selectedClassName}>
+        <use
+          href={`${svg}${variant === "item" ? "#plus" : "#addpeople"}`}
+        ></use>
+      </svg>
     </button>
   );
 };
@@ -29,8 +36,7 @@ AddButton.defaultProps = {
 
 AddButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
-  variant: PropTypes.oneOf(["primary", "secondary"]),
+  variant: PropTypes.oneOf(["item", "member"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
-  text: PropTypes.string.isRequired,
 };

@@ -1,15 +1,13 @@
 import styles from "./DeleteButton.module.scss";
 import svg from "../../../../assets/btnIcons/sprite.svg";
 import PropTypes from "prop-types";
-
 const types = {
   primary: styles.Primary,
   secondary: styles.Secondary,
 };
-
 const DeleteButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
-  // const selectedType = types[variant];
+
   return (
     <button
       type={type}
@@ -25,14 +23,12 @@ const DeleteButton = ({ className, onClick, variant, type }) => {
   );
 };
 export default DeleteButton;
-
 DeleteButton.defaultProps = {
   variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
 };
-
 DeleteButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
   variant: PropTypes.oneOf(["primary", "secondary"]),

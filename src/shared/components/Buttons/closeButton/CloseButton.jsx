@@ -1,27 +1,23 @@
 import styles from "./CloseButton.module.scss";
+import svg from "../../../../assets/btnIcons/sprite.svg";
 import PropTypes from "prop-types";
 
-const types = {
-  primary: styles.CloseButtonPrimary,
-  secondary: styles.CloseButtonSecondary,
-};
-
-const CloseButton = ({ className, onClick, variant, type }) => {
-  const selectedClassName = types[variant];
+const CloseButton = ({ className, onClick, type }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.CloseButton} ${selectedClassName} ${className}`}
+      className={`${styles.button} ${styles.closeButton} ${className}`}
     >
-      +
+      <svg className={styles.closeIcon}>
+        <use href={`${svg}#closebtn`}></use>
+      </svg>
     </button>
   );
 };
 export default CloseButton;
 
 CloseButton.defaultProps = {
-  variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
@@ -29,7 +25,6 @@ CloseButton.defaultProps = {
 
 CloseButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
-  variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
