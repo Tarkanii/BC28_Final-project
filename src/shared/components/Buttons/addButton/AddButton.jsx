@@ -9,18 +9,22 @@ const types = {
 
 const AddButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
+  const icon = () => {
+    if (variant === "item") return "#plus";
+    if (variant === "member") return "#addpeople";
+  };
+  const classType = () => {
+    if (variant === "item") return styles.addButton;
+    if (variant === "member") return styles.addMember;
+  };
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${
-        variant === "item" ? styles.addButton : styles.addMember
-      } ${className}`}
+      className={`${styles.button} ${classType()} ${className}`}
     >
       <svg className={selectedClassName}>
-        <use
-          href={`${svg}${variant === "item" ? "#plus" : "#addpeople"}`}
-        ></use>
+        <use href={`${svg}${icon()}`}></use>
       </svg>
     </button>
   );
@@ -28,7 +32,7 @@ const AddButton = ({ className, onClick, variant, type }) => {
 export default AddButton;
 
 AddButton.defaultProps = {
-  variant: "primary",
+  variant: "item",
   className: "",
   type: "button",
   onClick: () => {},
