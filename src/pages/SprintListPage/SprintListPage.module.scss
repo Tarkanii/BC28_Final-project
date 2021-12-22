@@ -1,0 +1,388 @@
+@import "../../shared/styles/common.scss";
+
+.Title {
+  margin: 0;
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+
+  color: getColor("text-title");
+
+  @include tablet {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19px;
+}
+
+.EditBtn {
+  @include tablet {
+    margin-right: auto;
+  }
+
+  @include desktop {
+    margin-right: auto;
+  }
+}
+
+.Img {
+  display: block;
+}
+
+.AddMembers {
+  display: flex;
+  align-items: center;
+  margin-bottom: 31px;
+}
+
+.AddBtn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0;
+  padding-bottom: 10px;
+  text-decoration: underline;
+  border-style: none;
+  background-color: transparent;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+
+  color: getColor("text-title");
+}
+
+.MembersImg {
+  margin-right: 10px;
+  padding-top: 10px;
+}
+
+.SprintContainer {
+  margin-bottom: 10px;
+  background-color: getColor("bg-white");
+  width: 280px;
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+  border-radius: 5px;
+
+  @include tablet {
+    width: 216px;
+    margin-bottom: 0;
+  }
+
+  @include desktop {
+    width: 270px;
+  }
+}
+
+.SprintCard {
+  padding: 20px 20px 10px 20px;
+}
+
+.SprintName {
+  margin: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+
+  letter-spacing: 0.04em;
+
+  color: getColor("text-title");
+
+  @include tablet {
+    margin-bottom: 28px;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+}
+
+.List {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 6px;
+
+  @include tablet {
+    margin-bottom: 13px;
+  }
+}
+
+.SprintDesc {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+    @include tablet {
+      margin-bottom: 36px;
+    }
+  }
+
+  &:not(:last-child) {
+    @include desktop {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.Text {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: getColor("text-primary");
+
+  @include tablet {
+    max-width: 95px;
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  @include desktop {
+    max-width: none;
+  }
+}
+
+// .SprintDesc:not(:last-child) {
+//   margin-bottom: 10px;
+// }
+
+.DeleteBtn {
+  display: block;
+  margin-left: auto;
+}
+
+.AddSprint {
+  @include desktop {
+    display: flex;
+    align-items: center;
+    position: static;
+  }
+}
+
+.AddSprintBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  background: getColor("accent");
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+
+  @include tablet {
+    position: static;
+  }
+
+  @include desktop {
+    position: static;
+    margin-right: 20px;
+  }
+}
+
+.AddSprintText {
+  display: none;
+
+  @include desktop {
+    display: inline-block;
+    position: static;
+    // top: 55px;
+    // right: 100px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.04em;
+
+    color: getColor("text-title");
+  }
+}
+
+.SprintList {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.FormTitle {
+  margin-top: 28px;
+
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+
+  text-align: center;
+
+  color: getColor("text-title");
+}
+
+.SprintInput {
+  margin-bottom: 55px;
+}
+
+.SprintInputDate {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.radio {
+  &Box {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    // margin-left: 30px;
+    height: 20px;
+    padding-left: 44px;
+    margin-bottom: 40px;
+  }
+  &Label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.04em;
+
+    color: rgba(24, 28, 39, 0.6);
+  }
+  &Button {
+    cursor: pointer;
+    margin: 0;
+    &:checked + .radioLabel > .customRadio::before {
+      background-color: getColor("accent");
+    }
+    &:checked + .radioLabel {
+      font-weight: 700;
+      color: getColor("accent");
+    }
+  }
+}
+.customRadio {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin-left: -46px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+}
+
+// @media screen and (min-width: 768px) {
+//   //   .Title {
+//   //     font-size: 36px;
+//   //     line-height: 1.22;
+//   //   }
+//   //   .SprintContainer {
+//   //     width: 216px;
+//   //     margin-bottom: 0;
+//   //   }
+//   //   .SprintList {
+//   //     display: flex;
+//   //     flex-wrap: wrap;
+//   //     gap: 20px;
+//   //   }
+
+//   //   .Header {
+//   //     display: flex;
+//   //   }
+
+//   //   .EditBtn {
+//   //     margin-right: auto;
+//   //   }
+//   //   .AddSprintBtn {
+//   //     position: static;
+//   //     // position: absolute;
+//   //     // top: 40px;
+//   //     // right: 40px;
+//   //   }
+//   //   .SprintName {
+//   //     margin-bottom: 28px;
+//   //     font-size: 18px;
+//   //     line-height: 1.22;
+//   //     letter-spacing: 0.04em;
+//   //     text-align: left;
+//   //   }
+
+//   //   .Text {
+//   //     max-width: 95px;
+//   //     font-size: 14px;
+//   //     line-height: 1.21;
+//   //   }
+//   //   .SprintDesc:not(:last-child) {
+//   //     margin-bottom: 20px;
+//   //   }
+
+//   //   .SprintDesc:first-child {
+//   //     margin-bottom: 36px;
+//   //   }
+
+//   //   .List {
+//   //     margin-bottom: 13px;
+//   //   }
+// }
+
+// @media screen and (min-width: 1280px) {
+//   //   .AddSprint {
+//   //     display: flex;
+//   //     align-items: center;
+//   //     position: static;
+//   //     // top: 40px;
+//   //     // right: 100px;
+//   //   }
+
+//   //   .Header {
+//   //     display: flex;
+//   //   }
+
+//   //   .EditBtn {
+//   //     margin-right: auto;
+//   //   }
+//   //   .AddSprintText {
+//   //     display: inline-block;
+//   //     position: static;
+//   //     // top: 55px;
+//   //     // right: 100px;
+//   //     font-weight: 500;
+//   //     font-size: 18px;
+//   //     line-height: 1.22;
+//   //     letter-spacing: 0.04em;
+
+//   //     color: getColor("text-title");
+//   //   }
+//   //   .AddSprintBtn {
+//   //     position: static;
+//   //     margin-right: 20px;
+//   //     // right: 280px;
+//   //   }
+
+//   //   .SprintContainer {
+//   //     width: 270px;
+//   //   }
+
+//   //   .SprintDesc:not(:last-child) {
+//   //     margin-bottom: 20px;
+//   //   }
+
+//   //   .Text {
+//   //     max-width: none;
+//   //   }
+// }
