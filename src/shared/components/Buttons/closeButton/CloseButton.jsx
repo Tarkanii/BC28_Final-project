@@ -13,9 +13,7 @@ const CloseButton = ({ className, onClick, variant, type }) => {
       type={type}
       onClick={onClick}
       className={`${styles.button} ${styles.CloseButton} ${selectedClassName} ${className}`}
-    >
-      +
-    </button>
+    ></button>
   );
 };
 export default CloseButton;
