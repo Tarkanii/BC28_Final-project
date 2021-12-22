@@ -1,17 +1,23 @@
 import { Suspense, lazy } from "react";
 import { Switch } from "react-router-dom";
-import { PrivateRoute, PublicRoute } from "../shared/components/Routes";
-import AuthPage from "../pages/AuthPage";
+// import PrivateRoute from "../shared/components/Routes/PrivateRoutes";
+import PublicRoute from "../shared/components/Routes/PublicRoutes";
+
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
 
 const Routes = () => {
-  <Suspense fallback={<div>Loading...</div>}>
-    <Switch>
-      <PublicRoute exact path="/" redirectTo="/login">
-        <Navbar />
-        <AuthPage />
-      </PublicRoute>
-      <PublicRoute exact path="/signup" redirectTo="/login"></PublicRoute>
-    </Switch>
-  </Suspense>;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <PublicRoute exact path="/" redirectTo="/login">
+          <LoginPage />
+        </PublicRoute>
+        <PublicRoute exact path="/signup" redirectTo="/login">
+          <RegisterPage />
+        </PublicRoute>
+      </Switch>
+    </Suspense>
+  );
 };
 export default Routes;
