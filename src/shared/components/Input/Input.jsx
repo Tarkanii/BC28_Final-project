@@ -11,23 +11,23 @@ const Input = ({ label, placeholder, ...field }) => {
 
   const [input, setInput] = useState("");
 
-  const handleChange = ({ target }) => {
-    setInput(target.value);
-  };
+  // const handleChange = ({ target }) => {
+  //   setInput(target.value);
+  // };
 
   return (
     <div className={styles.formGroup}>
       <label
         className={`${styles.formLabel} ${
-          !(label || input) && styles.isHidden
+          !(label || field.value) && styles.isHidden
         }`}
         htmlFor={id}
       >
         {label || placeholder}
       </label>
       <input
-        value={input}
-        onChange={handleChange}
+        // value={input}
+        // onChange={handleChange}
         className={styles.formInput}
         placeholder={placeholder}
         {...field}

@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 // import { pickData } from "../../../redux/calendar/summaries/summaries-operations";
 import { format } from "date-fns";
 
-const Datepicker = () => {
+const Datepicker = ({ onChange }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    const chousenDate = format(e, "yyyy-MM-dd");
+    const chosenDate = format(e, "yyyy-MM-dd");
 
     setIsOpen(!isOpen);
     setStartDate(e);

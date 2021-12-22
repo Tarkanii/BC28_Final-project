@@ -1,11 +1,12 @@
 import "./App.scss";
 import Navbar from "./client/Navbar";
-import AuthPage from "./pages/AuthPage/AuthPage";
+import SprintListPage from "./pages/SprintListPage";
+
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <AuthPage />
+      <SprintListPage />
     </div>
   );
 }
