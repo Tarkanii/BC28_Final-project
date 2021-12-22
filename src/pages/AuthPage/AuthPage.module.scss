@@ -1,0 +1,15 @@
+@import "../../shared/styles/common.scss";
+
+.background {
+    display: block;
+    width: 100vw;
+    height: 90vh;
+    @include tablet {
+        background-repeat: no-repeat;
+        background-image:url("../../assets/authPage/orangeUnion_1x.png"), url("../../assets/authPage/whiteUnion_1x.png"),url("../../assets/authPage/orangeCircle_2x.png"), url("../../assets/authPage/authGroup_1x.png"),url("../../assets/authPage/orangeCircle_1x.png");
+        background-position: right -255px top 200px, right -255px top 168px, right 80px top 60px, left -140px top 180px;
+    }
+    @include desktop {
+        background-position: right top 200px, right top 168px, right 28% top 60px, left 40px bottom,right 15% top 80px ;
+    }
+}
