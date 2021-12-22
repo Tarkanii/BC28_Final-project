@@ -26,7 +26,7 @@ const SprintListPage = () => {
           <EditButton className={styles.EditBtn} />
           <div className={styles.AddSprint}>
             <AddButton
-              text="+"
+              variant="item"
               className={styles.AddSprintBtn}
               onClick={toggleModal}
             />
