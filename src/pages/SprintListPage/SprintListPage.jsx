@@ -2,8 +2,22 @@ import styles from "./SprintListPage.module.scss";
 import AddButton from "../../shared/components/Buttons/addButton/AddButton";
 import EditButton from "../../shared/components/Buttons/editButton/EditButton";
 import SprintElement from "./SprintElement";
+import AddNewSprintForm from "./AddNewSprintForm";
+import Modal from "../../shared/components/Modal/Modal";
+import { useState } from "react";
 
 const SprintListPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <div className={styles.Sprint}>
       <div className="container">
@@ -11,7 +25,16 @@ const SprintListPage = () => {
           <h2 className={styles.Title}>Project 1</h2>
           <EditButton className={styles.EditBtn} />
           <div className={styles.AddSprint}>
-            <AddButton text="+" className={styles.AddSprintBtn} />
+            <AddButton
+              text="+"
+              className={styles.AddSprintBtn}
+              onClick={toggleModal}
+            />
+            {showModal && (
+              <Modal closeModal={closeModal}>
+                <AddNewSprintForm />
+              </Modal>
+            )}
             <span className={styles.AddSprintText}>Создать спринт</span>
           </div>
         </div>

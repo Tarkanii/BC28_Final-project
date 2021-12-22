@@ -14,7 +14,7 @@ const DeleteButton = ({ className, onClick, variant, type }) => {
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.DeleteButton}${className}`}
+      className={`${styles.button} ${styles.DeleteButton} ${className}`}
     >
       <svg className={selectedClassName}>
         <use

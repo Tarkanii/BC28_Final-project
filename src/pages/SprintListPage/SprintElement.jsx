@@ -17,7 +17,7 @@ const SprintElement = () => {
   return (
     <>
       <ul className={styles.List}>{addSprint}</ul>
-      <DeleteButton className={styles.DeleteBtn} />
+      <DeleteButton className={styles.DeleteBtn} variant="secondary" />
       {/* <button type="button" className={styles.DeleteBtn}>
         <img className={styles.Img} src="#" width="20" alt="btn" />
       </button> */}
