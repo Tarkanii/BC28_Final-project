@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react';
-import styles from './Modal.module.scss';
-import CloseBtn from './CloseBtn';
+import React, { useEffect } from "react";
+import styles from "./Modal.module.scss";
+import CloseBtn from "./CloseBtn";
 import PropTypes from "prop-types";
 
 const Modal = ({ closeModal, children }) => {
   useEffect(() => {
     const handleKeyDown = ({ code }) => {
-      if (code === 'Escape') {
+      if (code === "Escape") {
         closeModal();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
-    return window.removeEventListener('keydown', handleKeyDown);
+    return window.removeEventListener("keydown", handleKeyDown);
   }, [closeModal]);
 
-  const handleClickOpen = e => {
+  const handleClickOpen = (e) => {
     if (
-      e.target.id === 'backdrop' ||
-      e.target.nodeName === 'svg' ||
-      e.target.nodeName === 'path'
+      e.target.id === "backdrop" ||
+      e.target.nodeName === "svg" ||
+      e.target.nodeName === "path"
     ) {
       closeModal();
     }
@@ -38,12 +38,12 @@ const Modal = ({ closeModal, children }) => {
       </div>
     </div>
   );
-}
+};
 Modal.defaultProps = {
-    closeModal: () => {},
-  };
-  Modal.propTypes = {
-    closeModal: PropTypes.func,
-  };
-  
-  export default Modal;
+  closeModal: () => {},
+};
+Modal.propTypes = {
+  closeModal: PropTypes.func,
+};
+
+export default Modal;

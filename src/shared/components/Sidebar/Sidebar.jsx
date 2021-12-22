@@ -22,7 +22,7 @@ function Sidebar({ item = "init item", children }) {
         {children}
       </ul>
       <div className="sidebar__footer">
-        <AddButton className={styles.sidebar__AddBtn} />
+        <AddButton variant="item" />
         <p className={styles.sidebar__subscription}>Create a {item}</p>
       </div>
     </div>

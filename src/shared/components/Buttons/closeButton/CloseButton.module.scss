@@ -1,15 +1,12 @@
-// @import "../../../styles/common.scss";
-
-.CloseButton {
+.closeButton {
   padding: 0;
   width: 20px;
   height: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  background-image: url("../../../../assets/btnIcons/close.svg");
-  background-size: 18px 18px;
+}
+.closeIcon {
+  height: 18px;
+  width: 18px;
 }
