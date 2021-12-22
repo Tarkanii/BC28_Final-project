@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons";
 import styles from "./Sidebar.module.scss";
 import svg from "../../../assets/btnIcons/sprite.svg";
 
-function Sidebar({ item = "sprint" }) {
+function Sidebar({ item = "init item" }) {
   const title = `Show ${item}s`;
   return (
     <div className={styles.sidebar__wrapper}>
@@ -13,10 +13,14 @@ function Sidebar({ item = "sprint" }) {
         </svg>
         {title}
       </a>
-      <ul className={styles.sidebar__list}>
-        <SidebarItem name="Sprint Burndown Chart 1" />
-        <SidebarItem name="Sprint Burndown Chart 2" />
-        <SidebarItem name="Sprint Burndown Chart 3" />
+      <ul
+        className={`${styles.sidebar__list}  ${
+          item === "project" ? styles.colorizing : ""
+        }`}
+      >
+        <SidebarItem className={styles.item} name="init name" />
+        <SidebarItem className={styles.item} name="init name" />
+        <SidebarItem className={styles.item} name="init name" />
       </ul>
       <div className="sidebar__footer">
         <AddButton className={styles.sidebar__AddBtn} />
