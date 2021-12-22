@@ -1,6 +1,9 @@
 @import "../../../styles/common.scss";
 
-.AddButtonPrimary {
+.addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
   padding: 0;
@@ -9,9 +12,17 @@
   border-radius: 50%;
   background-color: getColor("accent");
   box-shadow: 0px 3px 4px 0px #ff6b084d;
-  background-image: url("../../../../assets/btnIcons/add.svg");
-  background-size: 18px 18px;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: rotate(45deg);
+}
+.addMember {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.item {
+  height: 18px;
+  width: 18px;
+}
+.member {
+  height: 20px;
+  width: 20px;
 }

@@ -19,7 +19,7 @@ function Sidebar({ item = "sprint" }) {
         <SidebarItem name="Sprint Burndown Chart 3" />
       </ul>
       <div className="sidebar__footer">
-        <AddButton className={styles.sidebar__AddBtn} />
+        <AddButton variant="item" />
         <p className={styles.sidebar__subscription}>Create a {item}</p>
       </div>
     </div>

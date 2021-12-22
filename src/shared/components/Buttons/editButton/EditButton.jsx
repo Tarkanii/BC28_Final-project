@@ -1,25 +1,23 @@
 import styles from "./EditButton.module.scss";
 import PropTypes from "prop-types";
+import svg from "../../../../assets/btnIcons/sprite.svg";
 
-const types = {
-  primary: styles.EditButtonPrimary,
-  secondary: styles.EditButtonSecondary,
-};
-
-const EditButton = ({ className, onClick, variant, type }) => {
-  const selectedClassName = types[variant];
+const EditButton = ({ className, onClick, type }) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${styles.button} ${styles.EditButton} ${selectedClassName} ${className}`}
-    ></button>
+      className={`${styles.button} ${styles.editButton} ${className}`}
+    >
+      <svg className={styles.editIcon}>
+        <use href={`${svg}#editbtn`}></use>
+      </svg>
+    </button>
   );
 };
 export default EditButton;
 
 EditButton.defaultProps = {
-  variant: "primary",
   className: "",
   type: "button",
   onClick: () => {},
@@ -27,7 +25,6 @@ EditButton.defaultProps = {
 
 EditButton.propTypes = {
   type: PropTypes.oneOf(["button", "reset", "submit"]),
-  variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
 };
