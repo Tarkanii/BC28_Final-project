@@ -3,8 +3,9 @@ import { AddButton } from "../Buttons";
 import styles from "./Sidebar.module.scss";
 import svg from "../../../assets/btnIcons/sprite.svg";
 
-function Sidebar({ item = "init item" }) {
+function Sidebar({ item = "init item", children }) {
   const title = `Show ${item}s`;
+
   return (
     <div className={styles.sidebar__wrapper}>
       <a href="" className={styles.sidebar__goBackLink}>
@@ -18,9 +19,7 @@ function Sidebar({ item = "init item" }) {
           item === "project" ? styles.colorizing : ""
         }`}
       >
-        <SidebarItem className={styles.item} name="init name" />
-        <SidebarItem className={styles.item} name="init name" />
-        <SidebarItem className={styles.item} name="init name" />
+        {children}
       </ul>
       <div className="sidebar__footer">
         <AddButton variant="item" />
