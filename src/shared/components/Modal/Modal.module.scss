@@ -1,0 +1,63 @@
+@import "../../styles/common.scss";
+
+.overlay {
+    position: absolute;
+    width: 40%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    padding: 10px;
+    @include tablet {
+    width: 320px;
+    max-width: 100%;
+    }
+    @include desktop {
+      max-width: 512px;
+    }
+  }
+  
+  .modalMain {
+    position: absolute;
+    width: fit-content;
+    left: 10%;
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  
+    &:hover,
+    &:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      transform: scale(1.2);
+      top: 10px;
+      right: 30px;
+    }
+  }
+  
+  .backdrop {
+  @include tablet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+     }
+  @include desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  }
+ 
+  
