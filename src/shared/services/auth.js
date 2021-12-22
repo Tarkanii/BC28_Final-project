@@ -15,7 +15,7 @@ export const token = {
   },
 };
 export async function onSignUp(credentials) {
-  const { data } = await instance.post("/auth/register", credentials);
+  const { data } = await instance.post("/auth/signup", credentials);
   return data;
 }
 export async function onLogIn(credentials) {
