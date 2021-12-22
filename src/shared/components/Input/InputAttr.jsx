@@ -9,13 +9,14 @@ const InputAttr = {
     name: "password",
     placeholder: "Password",
     type: "password",
-    pattern: "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).+",
+    // pattern: "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).+",
+    pattern: "^(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$",
     // "Введите минимум 8 символов, обязательно должны присутствовать цифры и буквы разного регистра",
     required: true,
   },
   name: {
     name: "name",
-    placeholder: "Input name or description",
+    placeholder: "Input name",
     pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
     required: true,
   },
@@ -28,7 +29,7 @@ const InputAttr = {
   hours: {
     name: "hours",
     placeholder: "Scheduled hours",
-    pattern: "(?=.*[0-9])",
+    pattern: "^(?=.*d)",
     required: true,
   },
 };

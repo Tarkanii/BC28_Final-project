@@ -1,15 +1,16 @@
 import "./App.scss";
 import Navbar from "./client/Navbar";
-import { DeleteButton } from "./shared/components/Buttons";
+// import Inputs from "./shared/components/Input";
+// import Buttons from "./shared/components/Buttons";
+import Sidebar from "./shared/components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <h2>Button Primary 30x30</h2>
-      <DeleteButton variant="primary" />
-      <h2>Button Secondary 20x20</h2>
-      <DeleteButton variant="secondary" />
       <Navbar />
+      {/* <Buttons /> */}
+      <Sidebar />
+      {/* <Inputs /> */}
     </div>
   );
 }

@@ -1,17 +1,15 @@
 // @import "../../../styles/common.scss";
 
 .CloseButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Times New Roman", montserrat, serif;
-  font-weight: 400;
+  padding: 0;
   width: 20px;
   height: 20px;
-  font-size: 34px;
   background: transparent;
   border: none;
-  transform: rotate(45deg);
-  // border: solid 1px black;
-  color: #181c27;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  background-image: url("../../../../assets/btnIcons/close.svg");
+  background-size: 18px 18px;
 }

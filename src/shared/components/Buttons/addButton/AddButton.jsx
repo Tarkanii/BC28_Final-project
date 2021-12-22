@@ -6,16 +6,14 @@ const types = {
   secondary: styles.AddButtonSecondary,
 };
 
-const AddButton = ({ className, text, onClick, variant, type }) => {
+const AddButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
   return (
     <button
       type={type}
       onClick={onClick}
       className={`${styles.button} ${selectedClassName} ${className}`}
-    >
-      {text}
-    </button>
+    ></button>
   );
 };
 export default AddButton;
@@ -32,5 +30,4 @@ AddButton.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary"]),
   onClick: PropTypes.func,
   className: PropTypes.string,
-  text: PropTypes.string.isRequired,
 };
