@@ -23,7 +23,7 @@ export const authSlice = createSlice({
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
       state.user = payload.user;
-      state.token = payload.accessToken;
+      state.token = payload.token;
     },
     [authOperations.logIn.rejected](state, { payload }) {
       state.error = payload;
