@@ -7,6 +7,10 @@ const types = {
 };
 const DeleteButton = ({ className, onClick, variant, type }) => {
   const selectedClassName = types[variant];
+  const icon = () => {
+    if (variant === "primary") return "#delete-white";
+    if (variant === "secondary") return "#delete";
+  };
 
   return (
     <button
@@ -15,9 +19,7 @@ const DeleteButton = ({ className, onClick, variant, type }) => {
       className={`${styles.button} ${styles.DeleteButton} ${className}`}
     >
       <svg className={selectedClassName}>
-        <use
-          href={`${svg}${variant === "primary" ? "#delete-white" : "#delete"}`}
-        ></use>
+        <use href={`${svg}${icon()}`}></use>
       </svg>
     </button>
   );

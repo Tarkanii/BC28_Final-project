@@ -1,0 +1,102 @@
+@import "../../shared/styles/common.scss";
+
+
+.SubmitButtonPrimary {
+    height: 44px;
+    padding: 11px 44px;
+    display: flex;
+    box-shadow: 0px 3px 4px 0px #ff6b084d;
+    font-family: montserrat, sans-serif;
+    //   font-family: $font-primary;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    border-style: none;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    // background-color: getColor("accent");
+    background-color: #ff6b08;
+    color: #ffffff;
+    margin-bottom: 20px;
+    &:hover {
+        color: getColor("text-secondary");    
+    }
+    &:focus {
+        color: getColor("text-secondary");    
+    }
+}
+.authContainer {
+    background-color: getColor("bg-white");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tablet {
+        margin: auto;
+        margin-top: 100px; //20%
+        width: 570px;
+        height: 454px;
+    }
+}
+.authForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.authText {
+    font-weight: normal;
+    font-size: 12px;
+    padding-bottom: 10px;
+    color: getColor("text-secondary");
+}
+.inputText{
+    @extend .authText;  
+    opacity: 0;
+    
+}
+.authLink {
+    color: getColor("text-secondary");
+    &:hover {
+        color: getColor("accent");    
+    }
+    &:focus {
+        color: getColor("accent");    
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.authTitle {
+    color: getColor("text-title");
+    margin-top: 50px;
+    padding-bottom: 6px;
+    font-weight: 500;
+    font-size: 26px;
+}
+.authInput{
+    border-style: none;
+    border-bottom: 2px solid getColor("text-secondary");
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    &:hover {
+        border-bottom: 2px solid getColor("accent");   
+        
+    }
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid getColor("accent");    
+    }
+    @include tablet {
+        width: 430px;
+    }
+}
