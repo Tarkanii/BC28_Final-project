@@ -1,0 +1,52 @@
+@import "../../shared/styles/common.scss";
+
+.icon {
+  width: 100px;
+  @include tablet {
+    width: 140px;
+  }
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid getColor("border-color");
+
+  @include tablet {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.userName {
+  margin-right: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  color: getColor("text-title");
+  @include tablet {
+    margin-right: 77px;
+  }
+}
+.label{
+  font-size: 14px;
+line-height: 1.2;
+color:getColor("text-secondary");
+}

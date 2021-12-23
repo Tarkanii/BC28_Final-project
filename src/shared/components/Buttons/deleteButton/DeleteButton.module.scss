@@ -1,0 +1,21 @@
+@import "../../../styles/common.scss";
+
+.DeleteButton {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.Secondary {
+  width: 20px;
+  height: 20px;
+}
+
+.Primary {
+  width: 30px;
+  height: 30px;
+}

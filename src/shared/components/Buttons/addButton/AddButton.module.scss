@@ -1,0 +1,28 @@
+@import "../../../styles/common.scss";
+
+.addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: getColor("accent");
+  box-shadow: 0px 3px 4px 0px #ff6b084d;
+}
+.addMember {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.item {
+  height: 18px;
+  width: 18px;
+}
+.member {
+  height: 20px;
+  width: 20px;
+}
