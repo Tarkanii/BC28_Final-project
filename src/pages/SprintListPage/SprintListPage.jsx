@@ -24,7 +24,6 @@ const SprintListPage = () => {
       <div className="container">
         <div className={styles.Wrapper}>
           <Sidebar item="project" />
-          {/* <div className={styles.SprintList}>*/}   
            <div className={styles.Sprint}> 
             <div className={styles.Header}>
               <h2 className={styles.Title}>Project 1</h2>
@@ -81,7 +80,6 @@ const SprintListPage = () => {
               </div>
             </div>
           </div>
-        {/* </div> */}
       </div>
     </div>
   );
