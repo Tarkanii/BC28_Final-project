@@ -74,14 +74,10 @@ const RegisterForm = () => {
           >
             Зареєструватися
           </button>
-          <p className={styles.authText}>
-            Маєте акаунт?{" "}
-            <Link to="/login" className={styles.authLink}>
-              Увiйти
-            </Link>
-          </p>
-          {/*<p className={styles.authText}>Маєте акаунт? <Link to="/login" className={styles.authText}>Увiйти</Link></p>  */}
-        </div>
+          {/* <p className={styles.authText}>Маєте акаунт? <a href="" className={styles.authLink}>Увiйти</a></p> */}
+          <p className={styles.authText}>Маєте акаунт? <Link to="/login" className={styles.authText}>Увiйти</Link></p> 
+         </div>
+
       </form>
     </div>
   );
