@@ -35,6 +35,8 @@ const RegisterForm = () => {
       >
         <p className={styles.inputText}>E-mail</p>
         <input
+          pattern="^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$"
+          title="username@userEmail.net"
           type="text"
           className={styles.authInput}
           onChange={handleChange}
@@ -42,6 +44,7 @@ const RegisterForm = () => {
           required
           placeholder="Email"
           value={data.email}
+          
         />
         <p className={styles.inputText}>Пароль</p>
         <input
