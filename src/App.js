@@ -6,6 +6,7 @@ import Navbar from "./client/Navbar";
 // import Inputs from "./shared/components/Input";
 // import Buttons from "./shared/components/Buttons";
 import Sidebar from "./shared/components/Sidebar";
+import ListElement from "./shared/components/ListElement";
 // import Datepicker from "./shared/components/Datepicker";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <Routes /> */}
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <ListElement />
       {/*<Buttons />
       <Inputs />
       <Datepicker /> */}
