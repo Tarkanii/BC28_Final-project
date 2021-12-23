@@ -8,11 +8,16 @@ import authOperations from "../../redux/auth/auth-operations";
 import {token} from "../../shared/services/auth"
 import { LogOutButton } from "../../shared/components/Buttons";
 import styles from "./Navbar.module.scss";
+import { useEffect } from "react";
+
+
 const Navbar = () => {
   const jwt = useSelector(fetchToken);
   const email = useSelector(fetchEmail);
   const dispatch = useDispatch();
   token.set(jwt);
+  useEffect(() => { dispatch(authOperations.CheckedIsLoginCurrentUser(token))
+  }, []);
   const userInfo = () => {
     return (
       <div className={styles.userInfo}>
