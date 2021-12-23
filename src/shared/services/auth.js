@@ -15,7 +15,7 @@ export const token = {
   },
 };
 export async function onSignUp(credentials) {
-  const { data } = await instance.post("/auth/register", credentials);
+  const { data } = await instance.post("/auth/signup", credentials);
   return data;
 }
 export async function onLogIn(credentials) {
@@ -28,7 +28,8 @@ export async function onLogOut() {
   return data;
 }
 export async function CheckedCurrentUser() {
-  const { data } = await instance.get("/user");
+  const { data } = await instance.get("/current");
+  console.log(data)
   const date = format(new Date(), "yyyy-MM-dd");
   return { data, date };
 }

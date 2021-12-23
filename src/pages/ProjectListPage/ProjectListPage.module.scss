@@ -1,0 +1,144 @@
+@import "../../shared/styles/common";
+
+.title {
+  display: inline-block;
+  color: getColor("text-title");
+  font-size: 26px;
+  margin-bottom: 36px;
+  margin-top: 20px;
+  font-weight: 500;
+  margin-left: 5px;
+
+  @include tablet {
+    font-size: 36px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 25px;
+  }
+}
+
+.createContainer {
+  display: flex;
+
+  @include tablet {
+    flex-direction: row;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  @include desktop {
+    align-items: center;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 74px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+.item {
+  height: 136px;
+  width: calc((100% - 4 * 10px) / 2);
+  margin: 5px;
+  border: 1px solid getColor("border-color");
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:nth-child(3n + 1) {
+    background-color: getColor("first-project");
+  }
+  &:nth-child(3n + 2) {
+    background-color: getColor("second-project");
+  }
+  &:nth-child(3n + 3) {
+    background-color: getColor("third-project");
+  }
+
+  @include tablet {
+    width: calc((100% - 4 * 10px) / 3);
+    margin: 5px;
+    padding: 20px;
+    height: 216px;
+  }
+
+  @include desktop {
+    width: calc((100% - 4 * 15px) / 4);
+    margin: 5px;
+    height: 270px;
+  }
+
+  &:hover {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+}
+
+.itemTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: getColor("text-white");
+
+  @include tablet {
+    font-size: 26px;
+  }
+}
+
+.description {
+  display: block;
+  // position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  // transform: translateY(100%);
+  // transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  color: getColor("text-white");
+  @include tablet {
+    font-size: 14px;
+  }
+  // &:hover {
+  //   transform: translateY(0);
+  // }
+}
+
+.btn {
+  margin: 0 0 0 auto;
+}
+
+.Addbtn {
+  // position: absolute;
+  right: 30px;
+  bottom: 30px;
+  @include tablet {
+    margin: 0 0 20px auto;
+    position: static;
+    margin-right: 25px;
+  }
+  @include desktop {
+    margin: 0 0 0 auto;
+  }
+}
+
+.createTitle {
+  display: none;
+  @include desktop {
+    display: inline-block;
+    font-size: 18px;
+    color: getColor("text-title");
+    margin-left: 20px;
+  }
+}
+// .thumbs {
+//   position: relative;
+//   overflow: hidden;
+// }
