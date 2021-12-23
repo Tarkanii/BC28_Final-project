@@ -1,14 +1,41 @@
 import s from "./ProjectListPage.module.scss";
 import DeleteButton from "../../shared/components/Buttons/deleteButton";
+import { Link } from "react-router-dom";
+import { getProjectArray } from "../../redux/projects/projects-selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteProjects } from "../../redux/projects/projects-operations";
 
-export default function ProjectItems({ elem }) {
+export default function ProjectItems() {
+  const list = useSelector(getProjectArray);
+
+  const dispatch = useDispatch();
+
+  const deleteProject = (deleteId) => {
+    dispatch(deleteProjects(deleteId));
+  };
+
   return (
     <>
-            <li className={s.item}>
-            <h2 className={s.itemTitle}>{elem.title}</h2>
-            <p className={s.description}>{elem.description}</p>
-            <DeleteButton className={s.btn} variant="primary"/>
-          </li>
+      {list.map(({ _id, name, description }) => (
+        <li className={s.item} key={_id}>
+          <Link
+            to={{
+              pathname: `/projects/${_id}/sprints`,
+            }}
+            style={{ textDecoration: "none" }}
+          >
+            <h2 className={s.itemTitle}>{name}</h2>
+            <p className={s.description}>{description}</p>
+          </Link>
+          <DeleteButton
+            className={s.btn}
+            variant="primary"
+            onClick={() => {
+              deleteProject(_id);
+            }}
+          />
+        </li>
+      ))}
     </>
   );
 }
