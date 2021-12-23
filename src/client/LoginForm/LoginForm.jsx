@@ -20,7 +20,7 @@ const LoginForm = () => {
       <h1 className={styles.authTitle}>Вxiд</h1>
       <form onSubmit={handleSubmit} className={styles.authForm} autoComplete="off">
       <p className={styles.inputText}>E-mail</p>
-      <input type="text"
+      <input type="email"
           className={styles.authInput}
           onChange={handleChange}
           name="email"
@@ -29,7 +29,7 @@ const LoginForm = () => {
           value={data.email}
         />
       <p className={styles.inputText}>Пароль</p>  
-      <input type="text"
+      <input type="password"
           className={styles.authInput}
           onChange={handleChange}
           name="password"
