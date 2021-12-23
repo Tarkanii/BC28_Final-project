@@ -16,16 +16,14 @@ const projectSlice = createSlice({
   name: "projects",
   initialState,
   extraReducers: {
-    [getAllProjects.fulfilled](state, { payload }) {},
+    [getAllProjects.fulfilled](state, { payload }) {
+      state.projects = payload;
+    },
     [addProject.fulfilled](state, { payload }) {
-      // state.id = payload._id;
-      // state.description = payload.description;
-      // state.name = payload.name;
+      state.projects = [...state.projects, payload];
     },
     [deleteProjects.fulfilled](state, { payload }) {
-      // state.eatenProduct = state.filter(
-      //   (el) => el.id !== payload.id
-      // );
+      state.projects = state.projects.filter((el) => el._id !== payload._id);
     },
     [getProject.fulfilled](state, { payload }) {},
   },

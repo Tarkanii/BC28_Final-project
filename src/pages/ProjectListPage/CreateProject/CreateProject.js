@@ -12,6 +12,7 @@ export default function CreateProject({ onClick }) {
 
   const onSubmit = (data) => {
     dispatch(addProject(data));
+    onClick();
   };
 
   const [data, handleChange, handleSubmit] = useForm(
