@@ -46,8 +46,8 @@ const LoginForm = () => {
             variant="primary"
           >Увiйти
           </button>
-          <p className={styles.authText}>Немає акаунту? <a href="" className={styles.authLink}>Зареєструватись</a></p>
-          {/*<p className={styles.authText}>Немає акаунту? <Link to="/registration" className={styles.authText}>Зареєструватись</Link></p>  */}
+          {/* <p className={styles.authText}>Немає акаунту? <a href="" className={styles.authLink}>Зареєструватись</a></p> */}
+          <p className={styles.authText}>Немає акаунту? <Link to="/signup" className={styles.authText}>Зареєструватись</Link></p> 
          </div>
       </form>
     </div>
