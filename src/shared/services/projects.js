@@ -1,7 +1,6 @@
 import { instance } from "./auth";
 
 export const getProjects = () => {
-  console.log("sasasd");
   return instance.get("/projects/getAll");
 };
 export const createProject = (data) =>
