@@ -13,6 +13,7 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await onSignUp(credentials);
+      //сюда
       return data;
     } catch (error) {
       if (error.response.status === 409) {
