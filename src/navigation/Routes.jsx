@@ -27,7 +27,7 @@ const Routes = () => {
           <ProjectListPage />
         </PrivateRoute>
         <PrivateRoute exact path="/projects/:id/sprints" redirectTo="/login">
-          <ProjectPage />
+          <SprintsListPage />
         </PrivateRoute>
         <PrivateRoute
           exact
