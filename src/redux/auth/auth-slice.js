@@ -3,7 +3,6 @@ import authOperations from "./auth-operations";
 
 const initialState = {
   user: {
-    name: "",
     email: "",
   },
   token: "",
@@ -15,7 +14,7 @@ export const authSlice = createSlice({
   initialState,
   extraReducers: {
     [authOperations.register.fulfilled](state, { payload }) {
-      state.user = payload.user;
+      state.user.email = payload.email;
       state.token = payload.token;
     },
     [authOperations.register.rejected](state, { payload }) {

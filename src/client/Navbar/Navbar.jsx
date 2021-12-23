@@ -1,19 +1,29 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { fetchName } from "../../redux/auth/auth-selectors";
+import { fetchEmail, fetchToken } from "../../redux/auth/auth-selectors";
 import icon_2x from "../../assets/navbar/goitIcon_2x.png";
 import icon from "../../assets/navbar/goitIcon_1x.png";
+import authOperations from "../../redux/auth/auth-operations";
 
+import {token} from "../../shared/services/auth"
+import { LogOutButton } from "../../shared/components/Buttons";
 import styles from "./Navbar.module.scss";
 const Navbar = () => {
-  const userName = useSelector(fetchName);
-
+  const jwt = useSelector(fetchToken);
+  const email = useSelector(fetchEmail);
+  const dispatch = useDispatch();
+  token.set(jwt);
   const userInfo = () => {
-    // return (
-    // <div className={styles.userInfo}>
-    //   <p className={styles.userName}>{userName}</p>
-    // </div>
-    // );
+    return (
+      <div className={styles.userInfo}>
+        <p className={styles.userName}>{email}</p>
+        <LogOutButton
+          onClick={() => {
+            dispatch(authOperations.logOut());
+          }}
+        />
+      </div>
+    );
   };
   return (
     <div className={styles.navbar}>
@@ -25,7 +35,8 @@ const Navbar = () => {
             src={`${icon}`}
             alt="goit icon"
           />
-          {userName && userInfo()}
+          {email && userInfo()}
+          {userInfo()}
         </div>
       </div>
     </div>

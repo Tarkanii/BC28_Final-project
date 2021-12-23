@@ -1,3 +1,3 @@
 export const fetchToken = ({ auth }) => auth.token;
 
-export const fetchName = ({ auth }) => auth.user.name;
+export const fetchEmail = ({ auth}) => auth.user.email;
