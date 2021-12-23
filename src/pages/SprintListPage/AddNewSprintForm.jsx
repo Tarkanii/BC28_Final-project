@@ -1,5 +1,7 @@
 import Input from "../../shared/components/Input/Input";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addSprint } from "../../redux/sprints/sprints-operations";
 import useForm from "../../shared/hooks/useForm";
 import styles from "./SprintListPage.module.scss";
 import { SubmitButton } from "../../shared/components/Buttons";
@@ -13,19 +15,23 @@ const initialState = {
 };
 
 const AddNewSprintForm = () => {
+  const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(addSprint(data));
   };
-  const [data, handleChange, handleSubmit] = useForm(initialState, onSubmit);
-
+  const [data, handleChange, handleSubmit, setData] = useForm(
+    initialState,
+    onSubmit
+  );
+  console.log(data);
   const toggleCheck = () => {
-    setChecked(!checked);
+    setData((prevData) => ({ ...prevData, previous: !prevData.previous }));
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.SprintForm} onSubmit={handleSubmit}>
         <div className={styles.Form}>
           <h3 className={styles.FormTitle}>Creating a sprint</h3>
           <div className={styles.SprintInput}>
@@ -38,9 +44,11 @@ const AddNewSprintForm = () => {
           </div>
           <div className={styles.radioBox}>
             <input
-              type="radio"
+              name="previous"
+              type="checkbox"
               id="radioBtn"
-              checked={checked}
+              checked={data.previous}
+              // onChange={handleChange}
               className={`${styles.radioButton} ${styles.visuallyHidden}`}
             />
             <label htmlFor="id" className={styles.radioLabel}>
@@ -50,7 +58,7 @@ const AddNewSprintForm = () => {
           </div>
 
           <div className={styles.SprintInputDate}>
-            <Datepicker onChange={handleChange} />
+            <Datepicker onChange={handleChange} name="date" />
             <Input
               value={data.duration}
               name="duration"
@@ -60,6 +68,11 @@ const AddNewSprintForm = () => {
           </div>
           <div className={styles.ReadyBtn}>
             <SubmitButton text="Ready" />
+          </div>
+          <div className={styles.Cancel}>
+            <button type="button" className={styles.CancelBtn}>
+              Cancel
+            </button>
           </div>
         </div>
       </form>

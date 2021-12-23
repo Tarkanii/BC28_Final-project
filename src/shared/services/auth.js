@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 export const instance = axios.create({
   // baseURL: "https://slimmom-backend.herokuapp.com/",
-  baseURL: "http://localhost:3000/api/",
+  baseURL: "http://localhost:4000/api/",
 });
 
 export const token = {
@@ -29,7 +29,7 @@ export async function onLogOut() {
 }
 export async function CheckedCurrentUser() {
   const { data } = await instance.get("/current");
-  console.log(data)
+  console.log(data);
   const date = format(new Date(), "yyyy-MM-dd");
   return { data, date };
 }
