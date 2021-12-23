@@ -28,8 +28,7 @@ export async function onLogOut() {
   return data;
 }
 export async function CheckedCurrentUser() {
-  const { data } = await instance.get("/current");
-  console.log(data);
+  const { data } = await instance.get("/auth/current");
   const date = format(new Date(), "yyyy-MM-dd");
   return { data, date };
 }

@@ -5,6 +5,7 @@ import CreateProject from "./CreateProject/CreateProject";
 import { useEffect, useState } from "react";
 import { getAllProjects } from "../../redux/projects/projects-operations";
 import { useDispatch } from "react-redux";
+import Modal from "../../shared/components/Modal/Modal";
 
 export default function ProjectListPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +33,11 @@ export default function ProjectListPage() {
       <ul className={s.list}>
         <ProjectItems />
       </ul>
-      {isOpen && <CreateProject onClick={onCLick} />}
+      {isOpen && (
+        <Modal closeModal={onCLick}>
+          <CreateProject onClick={onCLick} />
+        </Modal>
+      )}
     </div>
   );
 }

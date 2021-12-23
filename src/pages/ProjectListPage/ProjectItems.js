@@ -25,7 +25,9 @@ export default function ProjectItems() {
             style={{ textDecoration: "none" }}
           >
             <h2 className={s.itemTitle}>{name}</h2>
-            <p className={s.description}>{description}</p>
+            <div className={s.thumbs}>
+              <p className={s.description}>{description}</p>
+            </div>
           </Link>
           <DeleteButton
             className={s.btn}
