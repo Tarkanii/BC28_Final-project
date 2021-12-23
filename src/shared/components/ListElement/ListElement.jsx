@@ -1,7 +1,13 @@
-import styles from "./ListElement.module.scss";
+import PropTypes from "prop-types";
 import { DeleteButton } from "../Buttons";
+import styles from "./ListElement.module.scss";
 
-const ListElement = ({ type = "sprint", title = "init title", children }) => {
+const ListElement = ({
+  deleteHandler,
+  type,
+  title = "init title",
+  children,
+}) => {
   return (
     <div
       className={`${styles.ListElement__wrapper} ${
@@ -14,7 +20,7 @@ const ListElement = ({ type = "sprint", title = "init title", children }) => {
         className={`${styles.ListElement__btn} ${
           type === "sprint" ? styles.rowBtn : ""
         }`}
-        onClick={""}
+        onClick={deleteHandler}
         variant="secondary"
       />
     </div>
@@ -22,3 +28,10 @@ const ListElement = ({ type = "sprint", title = "init title", children }) => {
 };
 
 export default ListElement;
+
+ListElement.propTypes = {
+  type: PropTypes.oneOf(["sprint", "project"]).isRequired,
+  title: PropTypes.string.isRequired,
+  deleteHandler: PropTypes.func,
+  children: PropTypes.object.isRequired,
+};
