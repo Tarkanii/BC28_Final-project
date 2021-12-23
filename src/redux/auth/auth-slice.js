@@ -3,7 +3,7 @@ import authOperations from "./auth-operations";
 
 const initialState = {
   user: {
-    username: "",
+    name: "",
     email: "",
   },
   token: "",
