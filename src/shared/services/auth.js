@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 export const instance = axios.create({
   // baseURL: "https://slimmom-backend.herokuapp.com/",
-  baseURL: "http://localhost:4000/api/",
+  baseURL: "http://localhost:3000/api/",
 });
 
 export const token = {
