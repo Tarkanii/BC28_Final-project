@@ -1,35 +1,9 @@
 @import "../../../shared/styles/common";
 
-.bg {
-  width: 100vw;
-  height: 100vh;
-  background-color: getColor("bg-white");
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0 50px;
-
-  @include tablet {
-    width: 70vw;
-    height: 100vh;
-  }
-  @include desktop {
-    width: 45vw;
-    height: 100vh;
-  }
-}
-
-.closeBtn {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
 .title {
   font-size: 26px;
   text-align: center;
-  margin-top: 63px;
-  margin-bottom: 30px;
+  margin: 63px auto 30px auto;
 
   @include tablet {
     font-size: 36px;
