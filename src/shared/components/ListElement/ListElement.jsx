@@ -4,7 +4,7 @@ import styles from "./ListElement.module.scss";
 
 const ListElement = ({
   deleteHandler,
-  type,
+  type = "sprint",
   title = "init title",
   children,
 }) => {
