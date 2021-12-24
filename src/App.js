@@ -1,5 +1,5 @@
 import "./App.scss";
-// import Routes from "./navigation/Routes";
+import Routes from "./navigation/Routes";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ProjectListPage from "./pages/ProjectListPage/ProjectListPage";
@@ -14,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <Routes /> */}
+      <Routes />
       {/* <Sidebar /> */}
-      <ListElement />
+      {/* <ListElement /> */}
       {/*<Buttons />
       <Inputs />
       <Datepicker /> */}

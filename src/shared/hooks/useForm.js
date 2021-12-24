@@ -15,7 +15,7 @@ const useForm = (initialState, onSubmit) => {
     setData({ ...initialState });
   };
 
-  return [data, handleChange, handleSubmit];
+  return [data, handleChange, handleSubmit, setData];
 };
 
 export default useForm;

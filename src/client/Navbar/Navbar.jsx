@@ -27,6 +27,7 @@ const Navbar = () => {
             dispatch(authOperations.logOut());
           }}
         />
+        <p className={styles.label}>Log out</p>
       </div>
     );
   };
@@ -41,7 +42,6 @@ const Navbar = () => {
             alt="goit icon"
           />
           {email && userInfo()}
-          {userInfo()}
         </div>
       </div>
     </div>

@@ -28,9 +28,11 @@ const ListElement = ({
 };
 
 export default ListElement;
-
+ListElement.defaultProps={
+  type: "project",
+}
 ListElement.propTypes = {
-  type: PropTypes.oneOf(["sprint", "project"]).isRequired,
+  type: PropTypes.oneOf(["sprint", "project"]),
   title: PropTypes.string.isRequired,
   deleteHandler: PropTypes.func,
   children: PropTypes.object.isRequired,
