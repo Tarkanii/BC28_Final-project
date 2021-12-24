@@ -9,9 +9,14 @@ import { useState } from "react";
 
 const SprintListPage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [state, setState] = useState([]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const addNewSprint = (sprint) => {
+    setState([...state, sprint]);
   };
 
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
@@ -19,6 +24,14 @@ const SprintListPage = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+  const elements = state.map((item) => (
+    <div className={styles.SprintContainer}>
+      <div className={styles.SprintCard}>
+        <h3 className={styles.SprintName}>{item.name}</h3>
+        <SprintElement {...item} />
+      </div>
+    </div>
+  ));
   return (
     <div className={styles.Sprint}>
       <div className={styles.Wrapper}>
@@ -35,7 +48,10 @@ const SprintListPage = () => {
               />
               {showModal && (
                 <Modal closeModal={closeModal}>
-                  <AddNewSprintForm />
+                  <AddNewSprintForm
+                    closeModal={closeModal}
+                    addNewSprint={addNewSprint}
+                  />
                 </Modal>
               )}
               <span className={styles.AddSprintText}>Создать спринт</span>
@@ -53,7 +69,7 @@ const SprintListPage = () => {
             </button>
           </div>
           <div className={styles.SprintList}>
-            <div className={styles.SprintContainer}>
+            {/* <div className={styles.SprintContainer}>
               <div className={styles.SprintCard}>
                 <h3 className={styles.SprintName}>Sprint Burndown Chart 1</h3>
                 <SprintElement />
@@ -76,7 +92,7 @@ const SprintListPage = () => {
                 <h3 className={styles.SprintName}>Sprint Burndown Chart 4</h3>
                 <SprintElement />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

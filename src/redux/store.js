@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/auth-slice";
 import projectReducer from "./projects/projects-slice";
+import sprintReducer from "./sprints/sprints-slice";
 
 const persistConfig = {
   key: "user",
@@ -23,6 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     projects: projectReducer,
+    sprints: sprintReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

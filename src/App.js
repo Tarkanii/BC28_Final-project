@@ -17,8 +17,8 @@ function App() {
       <Navbar />
       <Routes />
       {/* <Sidebar /> */}
-      <ListElement />
-      <SprintListPage />
+      {/* <ListElement /> */}
+      {/* <SprintListPage /> */}
       {/*<Buttons />
       <Inputs />
       <Datepicker /> */}
