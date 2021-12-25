@@ -4,7 +4,6 @@ import Routes from "./navigation/Routes";
 // import LoginPage from "./pages/LoginPage";
 // import ProjectListPage from "./pages/ProjectListPage/ProjectListPage";
 import Navbar from "./client/Navbar";
-import SprintListPage from "./pages/SprintListPage";
 // import Inputs from "./shared/components/Input";
 // import Buttons from "./shared/components/Buttons";
 // import Sidebar from "./shared/components/Sidebar";
@@ -18,7 +17,6 @@ function App() {
       <Routes />
       {/* <Sidebar /> */}
       {/* <ListElement /> */}
-      {/* <SprintListPage /> */}
       {/*<Buttons />
       <Inputs />
       <Datepicker /> */}
