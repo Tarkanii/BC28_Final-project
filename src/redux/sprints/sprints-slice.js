@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addSprint, removeSprint } from "./sprints-operations";
+import { addSprint, removeSprint, getAllSprints } from "./sprints-operations";
 
 const initialState = {
   items: [],
@@ -14,6 +14,9 @@ const projectSlice = createSlice({
     },
     [removeSprint.fulfilled]: (state, { payload }) => {
       state.items = state.items.filter((item) => item.id !== payload._id);
+    },
+    [getAllSprints.fulfilled]: (state, { payload }) => {
+      state.items = payload;
     },
     // [getAllProjects.fulfilled]: (state, { payload }) => {
     //   state.projects = payload;
