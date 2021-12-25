@@ -6,6 +6,9 @@ import AddNewSprintForm from "./AddNewSprintForm";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import Modal from "../../shared/components/Modal/Modal";
 import { useState } from "react";
+
+
+
 const SprintListPage = () => {
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => {
@@ -15,10 +18,11 @@ const SprintListPage = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
   return (
       <div className="container">
         <div className={styles.Wrapper}>
-          <Sidebar item="project" />
+          <Sidebar item="project"/>
            <div className={styles.Sprint}>
             <div className={styles.Header}>
               <h2 className={styles.Title}>Project 1</h2>
@@ -38,15 +42,10 @@ const SprintListPage = () => {
               </div>
             </div>
             <div className={styles.AddMembers}>
-              <img
-                className={`${styles.Img} ${styles.MembersImg}`}
-                src="#"
-                width="20"
-                alt="btn"
-              />
+            <AddButton variant="member" />
               <button type="button" className={styles.AddBtn}>
                 Добавить людей
-              </button>
+              </button> 
             </div>
             <div className={styles.SprintList}>
               <div className={styles.SprintContainer}>

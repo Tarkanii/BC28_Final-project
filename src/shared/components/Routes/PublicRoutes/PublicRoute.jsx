@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
+import { userCheck } from "../../../../redux/auth/auth-selectors";
+// import useAuth from "../../../hooks/useAuth";
 
 const PublicRoute = ({
   children,
@@ -7,7 +9,8 @@ const PublicRoute = ({
   redirectTo = "/",
   ...routeProps
 }) => {
-  const isLoggedIn = useAuth();
+  const isLoggedIn = useSelector(userCheck)
+  // const isLoggedIn = useAuth();
   const shouldRedirect = isLoggedIn && restricted;
   return (
     <Route {...routeProps}>
