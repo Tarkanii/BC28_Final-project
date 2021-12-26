@@ -16,8 +16,7 @@ export async function deleteProject(id) {
   const { data } = await instance.delete(`projects/${id}`);
   return data;
 }
-export async function updateProjectName({projectId,newValue}) {
-  console.log(newValue);
+export  function updateProjectName({projectId,newValue}) {
   return instance.patch(`projects/${projectId}`, newValue);
 }
 export async function updateMembers(id, credentials) {

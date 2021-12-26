@@ -1,11 +1,11 @@
-import Input from "../../shared/components/Input/Input";
+import Input from "../../../shared/components/Input/Input";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addSprint } from "../../redux/sprints/sprints-operations";
-import useForm from "../../shared/hooks/useForm";
-import styles from "./SprintListPage.module.scss";
-import { SubmitButton } from "../../shared/components/Buttons";
-import Datepicker from "../../shared/components/Datepicker/Datepicker";
+import { addSprint } from "../../../redux/sprints/sprints-operations";
+import useForm from "../../../shared/hooks/useForm";
+import styles from "../SprintListPage.module.scss";
+import { SubmitButton } from "../../../shared/components/Buttons";
+import Datepicker from "../../../shared/components/Datepicker/Datepicker";
 import { addDays, format } from "date-fns";
 
 const initialState = {

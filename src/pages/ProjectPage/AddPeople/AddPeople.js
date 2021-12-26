@@ -1,12 +1,12 @@
-import s from "../ProjectListPage/CreateProject/CreateProject.module.scss";
-import Input from "../../shared/components/Input/Input";
-import InputAttr from "../../shared/components/Input/InputAttr";
-import SubmitButton from "../../shared/components/Buttons/submitButton";
-import useForm from "../../shared/hooks/useForm";
+import s from "../../ProjectListPage/CreateProject/CreateProject.module.scss";
+import Input from "../../../shared/components/Input/Input";
+import InputAttr from "../../../shared/components/Input/InputAttr";
+import SubmitButton from "../../../shared/components/Buttons/submitButton";
+import useForm from "../../../shared/hooks/useForm";
 import { useDispatch } from "react-redux";
-import { addPeople } from "../../redux/projects/projects-operations";
+import { addPeople } from "../../../redux/projects/projects-operations";
 import { useSelector } from "react-redux";
-import { getPeople } from "../../redux/projects/projects-selectors";
+import { getPeople } from "../../../redux/projects/projects-selectors";
 
 
 export default function AddPeople({ onClick,projectId }) {

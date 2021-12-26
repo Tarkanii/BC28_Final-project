@@ -33,7 +33,7 @@ const Routes = () => {
           path="/projects/:id/sprints/:id"
           redirectTo="/login"
         >
-          <SprintPage />
+          <SprintPage/>
         </PrivateRoute>
       </Switch>
     </Suspense>

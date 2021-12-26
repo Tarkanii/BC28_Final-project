@@ -1,9 +1,9 @@
-import s from "./ProjectListPage.module.scss";
-import DeleteButton from "../../shared/components/Buttons/deleteButton";
+import s from "../ProjectListPage.module.scss";
+import DeleteButton from "../../../shared/components/Buttons/deleteButton";
 import { Link } from "react-router-dom";
-import { getProjectArray } from "../../redux/projects/projects-selectors";
+import { getProjectArray } from "../../../redux/projects/projects-selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProjects } from "../../redux/projects/projects-operations";
+import { deleteProjects } from "../../../redux/projects/projects-operations";
 
 export default function ProjectItems() {
   const list = useSelector(getProjectArray);
@@ -13,7 +13,7 @@ export default function ProjectItems() {
   const deleteProject = (deleteId) => {
     dispatch(deleteProjects(deleteId));
   };
-
+ 
   return (
     <>
       {list.map(({ _id, name, description }) => (
@@ -21,7 +21,9 @@ export default function ProjectItems() {
           <Link
             to={{
               pathname: `/projects/${_id}/sprints`,
-            }}
+              state: {
+                projectId:_id,
+            }}}
             style={{ textDecoration: "none" }}
           >
             <h2 className={s.itemTitle}>{name}</h2>

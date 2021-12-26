@@ -1,12 +1,12 @@
 import styles from "./SprintListPage.module.scss";
 import AddButton from "../../shared/components/Buttons/addButton/AddButton";
 import EditButton from "../../shared/components/Buttons/editButton/EditButton";
-import SprintElement from "./SprintElement";
-import AddNewSprintForm from "./AddNewSprintForm";
+import SprintElement from "./SprintItem/SprintElement";
+import AddNewSprintForm from "./AddSprint/AddNewSprintForm";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import Modal from "../../shared/components/Modal/Modal";
 import { useState } from "react";
-import AddPeople from "./AddPeople";
+import AddPeople from "./AddPeople/AddPeople";
 import { useDispatch } from "react-redux";
 import {
   getAllProjects,
@@ -18,7 +18,8 @@ import { useSelector } from "react-redux";
 import { getSprintData } from "../../redux/sprints/sprints-selectors";
 import { getProjectInfo } from "../../redux/projects/projects-selectors.js";
 import DeleteButton from "../../shared/components/Buttons/deleteButton/DeleteButton";
-import ChangeName from "./ChangeName";
+import ChangeName from "../../shared/components/ChangeName/ChangeName";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SprintListPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -26,6 +27,9 @@ const SprintListPage = () => {
   const [isOpenInput, setIsOpenInput] = useState(false);
   const { pathname } = useLocation();
 
+  // const history = useHistory();
+  // const projectId = history.location.state.projectId
+  
   const projectId = pathname
     .split("/projects/")
     .join("/sprints")
@@ -62,7 +66,7 @@ const SprintListPage = () => {
   return (
     <div className="container">
       <div className={styles.Wrapper}>
-        <Sidebar item="project" />
+        <Sidebar item="project" projectId={projectId} />
         <div className={styles.Sprint}>
           <div className={styles.Header}>
             {isOpenInput ? (
@@ -71,7 +75,6 @@ const SprintListPage = () => {
               <h2 className={styles.Title}>{projectInfo.name}</h2>
             )}
 
-            {/* <h2 className={styles.Title}>{projectInfo.name}</h2> */}
             <p className={styles.text}>{projectInfo.description}</p>
             <EditButton className={styles.EditBtn} onClick={openInput} />
 

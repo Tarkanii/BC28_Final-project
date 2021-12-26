@@ -1,7 +1,7 @@
-import styles from "./SprintListPage.module.scss";
-import DeleteButton from "../../shared/components/Buttons/deleteButton/DeleteButton";
+import styles from "../SprintListPage.module.scss";
+import DeleteButton from "../../../shared/components/Buttons/deleteButton/DeleteButton";
 import { useDispatch } from "react-redux";
-import { removeSprint } from "../../redux/sprints/sprints-operations";
+import { removeSprint } from "../../../redux/sprints/sprints-operations";
 import { Link } from "react-router-dom";
 
 const SprintElement = ({el, projectId}) => {
@@ -14,6 +14,10 @@ const SprintElement = ({el, projectId}) => {
     <Link
             to={{
               pathname: `/projects/${projectId}/sprints/${el._id}`,
+              state: {
+                projectId: projectId,
+                sprintId: el._id
+              },
             }}
             style={{ textDecoration: "none" }}
           >
