@@ -16,8 +16,8 @@ const Navbar = () => {
   const email = useSelector(fetchEmail);
   const dispatch = useDispatch();
   token.set(jwt);
-  // useEffect(() => { dispatch(authOperations.CheckedIsLoginCurrentUser(token))
-  // }, []);
+  useEffect(() => { dispatch(authOperations.CheckedIsLoginCurrentUser(token))
+  }, []);
   const userInfo = () => {
     return (
       <div className={styles.userInfo}>
@@ -42,6 +42,7 @@ const Navbar = () => {
             alt="goit icon"
           />
           {email && userInfo()}
+          {/* {userInfo()} */}
         </div>
       </div>
     </div>
