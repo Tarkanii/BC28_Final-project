@@ -1,9 +1,4 @@
-import axios from "axios";
-
-export const instance = axios.create({
-  // baseURL: "https://slimmom-backend.herokuapp.com/",
-  baseURL: "http://localhost:4000/api/",
-});
+import { instance } from "./auth";
 
 export async function getAllProjects() {
   const { data } = await instance.get("/projects");
@@ -29,3 +24,8 @@ export async function updateMembers(id, credentials) {
   const { data } = await instance.post(`projects/${id}`, credentials);
   return data;
 }
+
+export const participants = ({projectId,data}) => {
+return  instance.patch(`./projects/updateParticipants/${projectId}`, data.email);
+}
+

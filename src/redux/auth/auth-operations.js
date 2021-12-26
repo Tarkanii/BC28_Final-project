@@ -13,14 +13,9 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await onSignUp(credentials);
-      //сюда
       return data;
     } catch (error) {
-      if (error.response.status === 409) {
-        Notify.failure("Provided email already exists, try another");
-      }
-      Notify.failure(error.message);
-      return rejectWithValue(error.message);
+      return rejectWithValue(Notify.failure(error.response.data.message));
     }
   }
 );
@@ -33,11 +28,7 @@ const logIn = createAsyncThunk(
       token.set(data.accessToken);
       return data;
     } catch (error) {
-      if (error.response.status === 403) {
-        Notify.failure("This email doesn't exist or password is wrong");
-      }
-      Notify.failure(error.message);
-      return rejectWithValue(error);
+     return  rejectWithValue(Notify.failure(error.response.data.message));
     }
   }
 );
@@ -49,7 +40,7 @@ const logOut = createAsyncThunk(
       await onLogOut();
       token.unset();
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(Notify.failure(error.response.data.message));
     }
   }
 );
@@ -67,7 +58,7 @@ const CheckedIsLoginCurrentUser = createAsyncThunk(
       const data = await CheckedCurrentUser(persistedToken);
       return data;
     } catch (err) {
-      return thunkAPI.rejectWithValue(err);
+      return thunkAPI.rejectWithValue();
     }
   }
 );

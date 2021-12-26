@@ -44,19 +44,19 @@
 }
 
 .AddMembers {
+  display: flex;
+  width: 140px;
   font-size: 18px;
   line-height: 1.2px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  width: 150px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
   margin-bottom: 30px;
 }
 
 .AddBtn {
-  display: inline-block;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
   cursor: pointer;
   padding: 0;
   padding-bottom: 10px;
@@ -74,7 +74,6 @@
 
 .MembersImg {
   margin-right: 10px;
-  padding-top: 10px;
 }
 
 .SprintContainer {
@@ -148,6 +147,7 @@
   }
 }
 .Sprint {
+  flex-grow: 1;
   padding-top: 30px;
   @include tablet {
     padding-top: 40px;
