@@ -6,74 +6,113 @@ import AddNewSprintForm from "./AddNewSprintForm";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import Modal from "../../shared/components/Modal/Modal";
 import { useState } from "react";
-
-
+import AddPeople from "./AddPeople";
+import { useDispatch } from "react-redux";
+import {
+  getAllProjects,
+  getProject,
+} from "../../redux/projects/projects-operations";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getSprintData } from "../../redux/sprints/sprints-selectors";
+import { getProjectInfo } from "../../redux/projects/projects-selectors.js";
+import DeleteButton from "../../shared/components/Buttons/deleteButton/DeleteButton";
+import ChangeName from "./ChangeName";
 
 const SprintListPage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showAddPeople, setShowAddPeople] = useState(false);
+  const [isOpenInput, setIsOpenInput] = useState(false);
+  const { pathname } = useLocation();
+
+  const projectId = pathname
+    .split("/projects/")
+    .join("/sprints")
+    .split("/sprints")
+    .join("");
+  //трудные времена трудеют трудных решений ^^^^ ///
+
+  const sprintData = useSelector(getSprintData);
+  const projectInfo = useSelector(getProjectInfo);
+
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+  const openModal = () => {
+    setShowAddPeople(!showAddPeople);
+  };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProjects());
+    dispatch(getProject(projectId));
+  }, []);
+
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
   const closeModal = () => {
     setShowModal(false);
   };
 
+  const openInput = () => {
+    setIsOpenInput(!isOpenInput);
+  };
+
   return (
-      <div className="container">
-        <div className={styles.Wrapper}>
-          <Sidebar item="project"/>
-           <div className={styles.Sprint}>
-            <div className={styles.Header}>
-              <h2 className={styles.Title}>Project 1</h2>
-              <EditButton className={styles.EditBtn} />
-              <div className={styles.AddSprint}>
-                <AddButton
-                  variant="item"
-                  className={styles.AddSprintBtn}
-                  onClick={toggleModal}
-                />
-                {showModal && (
-                  <Modal closeModal={closeModal}>
-                    <AddNewSprintForm />
-                  </Modal>
-                )}
-                <span className={styles.AddSprintText}>Создать спринт</span>
-              </div>
-            </div>
-            <div className={styles.AddMembers}>
-            <AddButton variant="member" />
-              <button type="button" className={styles.AddBtn}>
-                Добавить людей
-              </button> 
-            </div>
-            <div className={styles.SprintList}>
-              <div className={styles.SprintContainer}>
-                <div className={styles.SprintCard}>
-                  <h3 className={styles.SprintName}>Sprint Burndown Chart 1</h3>
-                  <SprintElement />
-                </div>
-              </div>
-              <div className={styles.SprintContainer}>
-                <div className={styles.SprintCard}>
-                  <h3 className={styles.SprintName}>Sprint Burndown Chart 2</h3>
-                  <SprintElement />
-                </div>
-              </div>
-              <div className={styles.SprintContainer}>
-                <div className={styles.SprintCard}>
-                  <h3 className={styles.SprintName}>Sprint Burndown Chart 3</h3>
-                  <SprintElement />
-                </div>
-              </div>
-              <div className={styles.SprintContainer}>
-                <div className={styles.SprintCard}>
-                  <h3 className={styles.SprintName}>Sprint Burndown Chart 4</h3>
-                  <SprintElement />
-                </div>
-              </div>
+    <div className="container">
+      <div className={styles.Wrapper}>
+        <Sidebar item="project" />
+        <div className={styles.Sprint}>
+          <div className={styles.Header}>
+            {isOpenInput ? (
+              <ChangeName onClick={openInput} />
+            ) : (
+              <h2 className={styles.Title}>{projectInfo.name}</h2>
+            )}
+
+            {/* <h2 className={styles.Title}>{projectInfo.name}</h2> */}
+            {/* <p className={styles.text}>{projectInfo.description}</p> */}
+            <EditButton className={styles.EditBtn} onClick={openInput} />
+
+            <div className={styles.AddSprint}>
+              <AddButton
+                variant="item"
+                className={styles.AddSprintBtn}
+                onClick={toggleModal}
+              />
+              {showModal && (
+                <Modal closeModal={closeModal}>
+                  <AddNewSprintForm />
+                </Modal>
+              )}
+              <span className={styles.AddSprintText}>Создать спринт</span>
             </div>
           </div>
+          <div className={styles.AddMembers}>
+            <AddButton
+              variant="member"
+              type="button"
+              text="Add people"
+              className={styles.AddBtn}
+              onClick={openModal}
+            />
+            {showAddPeople && (
+              <Modal closeModal={openModal}>
+                <AddPeople projectId={projectId} onClick={openModal} />
+              </Modal>
+            )}
+          </div>
+        </div>
+
+        <ul className={styles.SprintList}>
+          {sprintData &&
+            sprintData.map((el) => {
+              return (
+                <SprintElement el={el} key={el._id} projectId={projectId} />
+              );
+            })}
+        </ul>
       </div>
     </div>
   );

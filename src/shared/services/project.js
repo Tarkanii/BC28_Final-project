@@ -1,9 +1,4 @@
-import axios from "axios";
-
-export const instance = axios.create({
-  // baseURL: "https://slimmom-backend.herokuapp.com/",
-  baseURL: "http://localhost:4000/api/",
-});
+import { instance } from "./auth";
 
 export async function getAllProjects() {
   const { data } = await instance.get("/projects");
@@ -21,11 +16,17 @@ export async function deleteProject(id) {
   const { data } = await instance.delete(`projects/${id}`);
   return data;
 }
-export async function updateProjectName(id, credentials) {
-  const { data } = await instance.post(`projects/${id}`, credentials);
-  return data;
+export async function updateProjectName({projectId,newValue}) {
+  console.log(newValue);
+  return instance.patch(`projects/${projectId}`, newValue);
 }
 export async function updateMembers(id, credentials) {
   const { data } = await instance.post(`projects/${id}`, credentials);
   return data;
 }
+
+export const participants = ({projectId,data}) => {
+  console.log(data);
+return  instance.patch(`./projects/updateParticipants/${projectId}`, data);
+}
+

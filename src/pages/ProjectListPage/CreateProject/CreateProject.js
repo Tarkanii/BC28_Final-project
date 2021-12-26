@@ -1,5 +1,4 @@
 import s from "./CreateProject.module.scss";
-import CloseButton from "../../../shared/components/Buttons/closeButton";
 import Input from "../../../shared/components/Input/Input";
 import InputAttr from "../../../shared/components/Input/InputAttr";
 import SubmitButton from "../../../shared/components/Buttons/submitButton";
@@ -16,7 +15,7 @@ export default function CreateProject({ onClick }) {
   };
 
   const [data, handleChange, handleSubmit] = useForm(
-    { name: "", description: "" },
+    { name: "", description: ""},
     onSubmit
   );
 

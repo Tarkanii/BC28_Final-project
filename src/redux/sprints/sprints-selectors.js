@@ -1,0 +1,1 @@
+export const getSprintData = ({sprints}) => sprints.sprints;
