@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { removeSprint } from "../../../redux/sprints/sprints-operations";
 import { Link } from "react-router-dom";
 
-const SprintElement = ({el, projectId}) => {
+const SprintElement = ({ el, projectId }) => {
   const dispatch = useDispatch();
   const deleteProject = (deleteId) => {
     dispatch(removeSprint(deleteId));
@@ -37,5 +37,3 @@ const SprintElement = ({el, projectId}) => {
                </li>)
 }
 export default SprintElement;
-
-

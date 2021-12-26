@@ -37,6 +37,7 @@ const Navbar = () => {
             alt="goit icon"
           />
           {email && userInfo()}
+          {/* {userInfo()} */}
         </div>
       </div>
     </div>
