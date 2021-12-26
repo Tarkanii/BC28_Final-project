@@ -16,9 +16,9 @@ export async function deleteProject(id) {
   const { data } = await instance.delete(`projects/${id}`);
   return data;
 }
-export async function updateProjectName(id, credentials) {
-  const { data } = await instance.post(`projects/${id}`, credentials);
-  return data;
+export async function updateProjectName({projectId,newValue}) {
+  console.log(newValue);
+  return instance.patch(`projects/${projectId}`, newValue);
 }
 export async function updateMembers(id, credentials) {
   const { data } = await instance.post(`projects/${id}`, credentials);
@@ -26,6 +26,7 @@ export async function updateMembers(id, credentials) {
 }
 
 export const participants = ({projectId,data}) => {
-return  instance.patch(`./projects/updateParticipants/${projectId}`, data.email);
+  console.log(data);
+return  instance.patch(`./projects/updateParticipants/${projectId}`, data);
 }
 

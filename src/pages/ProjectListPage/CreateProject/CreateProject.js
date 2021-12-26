@@ -1,23 +1,21 @@
 import s from "./CreateProject.module.scss";
-import CloseButton from "../../../shared/components/Buttons/closeButton";
 import Input from "../../../shared/components/Input/Input";
 import InputAttr from "../../../shared/components/Input/InputAttr";
 import SubmitButton from "../../../shared/components/Buttons/submitButton";
 import useForm from "../../../shared/hooks/useForm";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProject } from "../../../redux/projects/projects-operations";
-import { fetchEmail, getUserId } from "../../../redux/auth/auth-selectors";
 
 export default function CreateProject({ onClick }) {
   const dispatch = useDispatch();
-  const userId = useSelector(getUserId)
+
   const onSubmit = (data) => {
     dispatch(addProject(data));
     onClick();
   };
 
   const [data, handleChange, handleSubmit] = useForm(
-    { name: "", description: "" , owner:userId},
+    { name: "", description: ""},
     onSubmit
   );
 

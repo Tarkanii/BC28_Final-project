@@ -5,7 +5,7 @@ import {
   getProjectById,
   getProjects,
 } from "../../shared/services/projects";
-import {participants} from '../../shared/services/project'
+import {participants, updateProjectName} from '../../shared/services/project'
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 export const getAllProjects = createAsyncThunk(
@@ -67,6 +67,20 @@ export const addPeople = createAsyncThunk(
       return data.data;
     } catch (error) {
       return rejectWithValue(error);
+    }
+  }
+);
+
+export const renameProject = createAsyncThunk(
+  "projects/renamePeople",
+  async (newValue,thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+    const projectId = state.projects.project._id;
+      const { data } = await updateProjectName({projectId,newValue});
+      return data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
