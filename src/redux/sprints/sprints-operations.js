@@ -21,12 +21,14 @@ export const getAllSprints = createAsyncThunk(
 
 export const addSprint = createAsyncThunk(
   "sprints/add",
-  async (credentials, { rejectWithValue }) => {
+  async (newValue, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const projectId = state.projects.project._id;
     try {
-      const { data } = await createSprint(credentials);
+      const { data } = await createSprint({projectId,newValue});
       return data.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

@@ -7,7 +7,7 @@ const types = {
   member: styles.member,
 };
 
-const AddButton = ({ className, onClick, variant, type }) => {
+const AddButton = ({ className, onClick, variant, type, text }) => {
   const selectedClassName = types[variant];
   const icon = () => {
     if (variant === "item") return "#plus";
@@ -26,6 +26,7 @@ const AddButton = ({ className, onClick, variant, type }) => {
       <svg className={selectedClassName}>
         <use href={`${svg}${icon()}`}></use>
       </svg>
+      {text}
     </button>
   );
 };

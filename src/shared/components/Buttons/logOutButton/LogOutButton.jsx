@@ -16,6 +16,7 @@ const LogOutButton = ({ className, onClick, type }) => {
           href={`${svg}${!MOB ? "#logoutPrimary" : "#logoutSecondary"}`}
         ></use>
       </svg>
+      Log out
     </button>
   );
 };

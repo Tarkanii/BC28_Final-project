@@ -5,6 +5,8 @@ import svg from "../../../assets/btnIcons/sprite.svg";
 import CreateProject from '../../../pages/ProjectListPage/CreateProject/CreateProject'
 import Modal from "../Modal/Modal";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getProjectArray } from "../../../redux/projects/projects-selectors";
 
 function Sidebar({ item = "init item", children = `No ${item} added` }) {
   const title = `Show ${item}s`;
@@ -13,7 +15,8 @@ function Sidebar({ item = "init item", children = `No ${item} added` }) {
   const onCLick = () => {
     setIsOpen(!isOpen);
   };
-
+  const projects = useSelector(getProjectArray)
+ 
   return (
     <div className={styles.sidebar__wrapper}>
       <a href="" className={styles.sidebar__goBackLink}>
@@ -27,7 +30,8 @@ function Sidebar({ item = "init item", children = `No ${item} added` }) {
           item === "project" ? styles.colorizing : ""
         }`}
       >
-        {children}
+        {projects?.map(el=><li>{el.name}</li>)}
+        {/* {children} */}
       </ul>
       <div className={styles.sidebar__footer}>
         <AddButton className={styles.sidebar__AddBtn} variant="item" onClick={onCLick}/>
