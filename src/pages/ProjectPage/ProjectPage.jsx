@@ -72,7 +72,7 @@ const SprintListPage = () => {
             )}
 
             {/* <h2 className={styles.Title}>{projectInfo.name}</h2> */}
-            <p className={styles.text}>{projectInfo.description}</p>
+            {/* <p className={styles.text}>{projectInfo.description}</p> */}
             <EditButton className={styles.EditBtn} onClick={openInput} />
 
             <div className={styles.AddSprint}>
