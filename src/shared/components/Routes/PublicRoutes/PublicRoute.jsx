@@ -9,7 +9,6 @@ const PublicRoute = ({
   redirectTo = "/",
   ...routeProps
 }) => {
-  // const isLoggedIn = useSelector(userCheck)
   const isLoggedIn = useAuth();
   const shouldRedirect = isLoggedIn && restricted;
   return (

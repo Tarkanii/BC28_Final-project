@@ -7,9 +7,9 @@ import {
 } from "./projects-operations";
 
 const initialState = {
-  participants: [],
-  sprints: [],
   projects: [],
+  project: {},
+  participants: [],
 };
 
 const projectSlice = createSlice({
@@ -25,7 +25,10 @@ const projectSlice = createSlice({
     [deleteProjects.fulfilled]: (state, { payload }) => {
       state.projects = state.projects.filter((el) => el._id !== payload._id);
     },
-    [getProject.fulfilled]: (state, { payload }) => {},
+    [getProject.fulfilled]: (state, { payload }) => {
+      state.project = payload;
+      state.participants = [...state.participants,...payload.participants];
+    },
   },
 });
 
