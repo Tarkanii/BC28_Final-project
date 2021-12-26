@@ -4,6 +4,8 @@ import {
   addProject,
   deleteProjects,
   getProject,
+  addPeople,
+  renameProject
 } from "./projects-operations";
 
 const initialState = {
@@ -29,6 +31,12 @@ const projectSlice = createSlice({
       state.project = payload;
       state.participants = [...state.participants,...payload.participants];
     },
+    [addPeople.fulfilled]: (state, { payload }) => {
+      state.participants = payload.participants;
+    },
+    [renameProject.fulfilled]:(state, { payload }) => {
+      state.project = payload;
+    }
   },
 });
 
