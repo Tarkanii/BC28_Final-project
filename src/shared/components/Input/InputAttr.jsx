@@ -29,9 +29,9 @@ const InputAttr = {
   hours: {
     name: "hours",
     placeholder: "Scheduled hours",
-    pattern: "^(?=.*d)",
+    // pattern: "^(?=.*d)",
     required: true,
-  },
+  }
 };
 
 export default InputAttr;

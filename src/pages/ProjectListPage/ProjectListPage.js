@@ -1,4 +1,4 @@
-import ProjectItems from "./ProjectItems";
+import ProjectItems from "./ProjectItem/ProjectItems";
 import s from "./ProjectListPage.module.scss";
 import AddButton from "../../shared/components/Buttons/addButton";
 import CreateProject from "./CreateProject/CreateProject";
