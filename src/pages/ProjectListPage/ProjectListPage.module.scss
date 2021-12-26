@@ -50,17 +50,40 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  background: url("../../assets/projectCard/wave.png");
+  animation: animate 30s linear infinite;
+  
+  @keyframes animate {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 752px; //img width
+    }
+}
+@keyframes animate-reverse {
+    0% {
+        background-position: 752px;
+    }
+    100% {
+        background-position: 0; //img width
+    }
+}
   &:nth-child(4n + 1) {
     background-color: getColor("first-project");
   }
   &:nth-child(4n + 2) {
+    animation-delay: -5s;
+    animation: animate-reverse 30s linear infinite;
     background-color: getColor("second-project");
   }
   &:nth-child(4n + 3) {
+    animation-delay: -7s;
     background-color: getColor("third-project");
   }
   &:nth-child(4n + 4) {
+    animation-delay: -15s;
+    animation: animate-reverse 35s linear infinite;
     background-color: getColor("first-project");
   }
 
