@@ -86,6 +86,7 @@ const AddNewSprintForm = ({ addNewSprint, closeModal }) => {
               name="duration"
               onChange={handleChange}
               placeholder="Duration"
+              className={styles.durationInput}
             />
           </div>
           <div className={styles.ReadyBtn}>

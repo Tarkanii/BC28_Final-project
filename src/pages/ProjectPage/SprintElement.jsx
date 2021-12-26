@@ -1,6 +1,7 @@
 import { elements } from "./elements";
 import styles from "./SprintListPage.module.scss";
 import DeleteButton from "../../shared/components/Buttons/deleteButton/DeleteButton";
+
 const SprintElement = () => {
   const addSprint = elements.map((item) => {
     const keys = Object.values(item);

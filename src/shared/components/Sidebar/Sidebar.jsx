@@ -3,7 +3,7 @@ import { AddButton } from "../Buttons";
 import styles from "./Sidebar.module.scss";
 import svg from "../../../assets/btnIcons/sprite.svg";
 
-function Sidebar({ item = "init item", children = `No ${item} added` }) {
+function Sidebar({ item = "init item", children = `No ${item}s added` }) {
   const title = `Show ${item}s`;
 
   return (

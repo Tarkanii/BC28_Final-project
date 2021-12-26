@@ -1,7 +1,10 @@
 @import "../../shared/styles/common.scss";
 
 .Wrapper {
-  display: flex;
+  position: relative;
+  @include tablet {
+    display: flex;
+  }
 }
 
 .Title {
@@ -41,9 +44,15 @@
 }
 
 .AddMembers {
+  font-size: 18px;
+  line-height: 1.2px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  width: 150px;
   display: flex;
-  align-items: center;
-  margin-bottom: 31px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .AddBtn {
@@ -102,7 +111,7 @@
   color: getColor("text-title");
 
   @include tablet {
-    margin-bottom: 28px;
+    margin-bottom: 60px 0 30px;
     font-size: 18px;
     line-height: 1.22;
     letter-spacing: 0.04em;
@@ -138,15 +147,15 @@
     }
   }
 }
-.Sprint{
-  @include tablet{
+.Sprint {
+  padding-top: 30px;
+  @include tablet {
     padding-top: 40px;
-      padding-left: 20px;
+    padding-left: 20px;
   }
-  @include desktop{
-      padding-left: 70px;
+  @include desktop {
+    padding-left: 70px;
   }
-
 }
 .Text {
   margin: 0;
@@ -221,15 +230,32 @@
 }
 
 .SprintList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
   @include tablet {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    // justify-content: space-between;
+
+    @include desktop {
+      gap: 30px;
+    }
   }
 }
 
 .SprintForm {
   max-width: 429px;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
 }
 
 .FormTitle {
@@ -251,7 +277,11 @@
 .SprintInputDate {
   margin-bottom: 40px;
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .radio {
@@ -331,6 +361,11 @@
   background-color: transparent;
 }
 
+.durationInput {
+  @include tablet {
+    width: 200px;
+  }
+}
 // @media screen and (min-width: 768px) {
 //   //   .Title {
 //   //     font-size: 36px;
