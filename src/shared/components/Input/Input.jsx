@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 import styles from "./Input.module.scss";
 import { useState } from "react";
 
-const Input = ({ label, placeholder, onChange, value, ...field }) => {
+const Input = ({
+  className,
+  label,
+  placeholder,
+  onChange,
+  value,
+  ...field
+}) => {
   const id = nanoid();
   // if (field.required) {
   //   field.placeholder += " *";
@@ -27,10 +34,11 @@ const Input = ({ label, placeholder, onChange, value, ...field }) => {
       </label>
       <input
         value={value}
-        onChange={(e)=>{
+        onChange={(e) => {
           handleChange(e);
-          onChange(e)}}
-        className={styles.formInput}
+          onChange(e);
+        }}
+        className={`${styles.formInput} ${className}`}
         placeholder={placeholder}
         {...field}
         id={id}
