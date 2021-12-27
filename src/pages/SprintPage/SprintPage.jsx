@@ -9,7 +9,7 @@ import {
   getAllSprints,
   getSprint,
 } from "../../redux/sprints/sprints-operations";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { getSprintInfo, getTasks } from "../../redux/sprints/sprints-selectors";
 import CreateTask from "./AddTask/CreateTask";
 import TaskItem from "./TaskItem/TaskItem";
@@ -19,22 +19,25 @@ const SprintPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showAddPeople, setShowAddPeople] = useState(false);
   const [isOpenInput, setIsOpenInput] = useState(false);
+
   const СurrDate = () => {
     return new Date().toLocaleDateString();
   };
   const history = useHistory();
-  const sprintId = history.location.state.sprintId;
-  const projectId = history.location.state.projectId;
+  const location = useLocation();
+  const params = useParams();
+  const sprintId = params.sprintId;
+  const projectId = params.projectId;
 
   const sprintInfo = useSelector(getSprintInfo);
   const tasks = useSelector(getTasks);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
+    console.log();
     dispatch(getAllSprints(projectId));
     dispatch(getSprint(sprintId));
-  }, []);
+  }, [location]);
 
   const toggleModal = () => {
     setShowModal(!showModal);

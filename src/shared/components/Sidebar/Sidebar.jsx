@@ -4,6 +4,7 @@ import styles from "./Sidebar.module.scss";
 import svg from "../../../assets/btnIcons/sprite.svg";
 import CreateProject from "../../../pages/ProjectListPage/CreateProject/CreateProject";
 import Modal from "../Modal/Modal";
+import useMedia from "../../hooks/useMedia";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { getProjectArray } from "../../../redux/projects/projects-selectors";
@@ -12,6 +13,7 @@ import AddNewSprintForm from "../../../pages/ProjectPage/AddSprint/AddNewSprintF
 import { Link } from "react-router-dom";
 
 function Sidebar({ item = "init item" , projectId}) {
+  const {MOB} = useMedia();
   const title = `Show ${item}s`;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -39,20 +41,20 @@ function Sidebar({ item = "init item" , projectId}) {
         }`}
       >
         {item === "project" && projects?.map((el) => (
-          <SidebarItem name={el.name} key={el._id}/>
+          <SidebarItem name={el.name} key={el._id} id={el._id} way={wayCheck} item={item}/>
         ))}
         {item === "sprint" && sprints?.map((el) => (
-          <SidebarItem name={el.name} key={el._id} />
+          <SidebarItem name={el.name} key={el._id} id={el._id} way={wayCheck} item={item}/>
         ))}
       </ul>
-      <div className={styles.sidebar__footer}>
+      {!MOB&&(<div className={styles.sidebar__footer}>
         <AddButton
           className={styles.sidebar__AddBtn}
           variant="item"
           onClick={onCLick}
         />
         <p className={styles.sidebar__subscription}>Create a {item}</p>
-      </div>
+      </div>)}
       {(isOpen && item === "project") && <Modal closeModal={onCLick}>
           <CreateProject onClick={onCLick} />
         </Modal> }
