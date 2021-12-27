@@ -6,8 +6,7 @@ import PublicRoute from "../shared/components/Routes/PublicRoutes";
 const LoginPage = lazy(() => import("../pages/LoginPage"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage"));
 const ProjectListPage = lazy(() => import("../pages/ProjectListPage"));
-const ProjectPage = lazy(() => import("../pages/ProjectPage"));
-const SprintsListPage = lazy(() => import("../pages/SprintListPage"));
+const SprintsListPage = lazy(() => import("../pages/ProjectPage"));
 const SprintPage = lazy(() => import("../pages/SprintPage"));
 
 const Routes = () => {
@@ -34,7 +33,7 @@ const Routes = () => {
           path="/projects/:id/sprints/:id"
           redirectTo="/login"
         >
-          <SprintPage />
+          <SprintPage/>
         </PrivateRoute>
       </Switch>
     </Suspense>

@@ -1,7 +1,7 @@
 import { instance } from "./auth";
 
-export const getProjects = () => {
-  return instance.get("/projects/getAll");
+export const getProjects = (id) => {
+  return instance.get(`/projects/getAll/${id}`);
 };
 export const createProject = (data) =>
   instance.post("./projects/createNew", data);

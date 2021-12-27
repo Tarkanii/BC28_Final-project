@@ -1,4 +1,4 @@
-import ProjectItems from "./ProjectItems";
+import ProjectItems from "./ProjectItem/ProjectItems";
 import s from "./ProjectListPage.module.scss";
 import AddButton from "../../shared/components/Buttons/addButton";
 import CreateProject from "./CreateProject/CreateProject";
@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { getAllProjects } from "../../redux/projects/projects-operations";
 import { useDispatch } from "react-redux";
 import Modal from "../../shared/components/Modal/Modal";
+import { useSelector } from "react-redux";
+import { getUserId } from "../../redux/auth/auth-selectors";
 
 export default function ProjectListPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +16,12 @@ export default function ProjectListPage() {
   };
 
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getAllProjects());
+    setTimeout(() => {
+      dispatch(getAllProjects());
+    }, 100);
+      
   }, []);
 
   return (

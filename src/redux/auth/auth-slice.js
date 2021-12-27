@@ -7,6 +7,7 @@ const initialState = {
   },
   token: "",
   error: null,
+  userId: null
 };
 
 export const authSlice = createSlice({
@@ -16,6 +17,7 @@ export const authSlice = createSlice({
     [authOperations.register.fulfilled](state, { payload }) {
       state.user.email = payload.email;
       state.token = payload.token;
+     
     },
     [authOperations.register.rejected](state, { payload }) {
       state.error = payload;
@@ -23,6 +25,7 @@ export const authSlice = createSlice({
     [authOperations.logIn.fulfilled](state, { payload }) {
       state.user = payload.user;
       state.token = payload.token;
+      state.userId= payload.id
     },
     [authOperations.logIn.rejected](state, { payload }) {
       state.error = payload;
@@ -35,9 +38,11 @@ export const authSlice = createSlice({
       state.error = payload;
     },
     [authOperations.CheckedIsLoginCurrentUser.fulfilled](state, { payload }) {
-      state.user = payload.data;
+      state.user.email = payload.data.email;
+      state.userId= payload.data.id
     },
     [authOperations.CheckedIsLoginCurrentUser.rejected](state, { payload }) {
+      state.user = initialState.user;
       state.token = "";
     },
   },

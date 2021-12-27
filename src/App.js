@@ -1,25 +1,25 @@
 import "./App.scss";
 import Routes from "./navigation/Routes";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
-import ProjectListPage from "./pages/ProjectListPage/ProjectListPage";
 import Navbar from "./client/Navbar";
-// import Inputs from "./shared/components/Input";
-// import Buttons from "./shared/components/Buttons";
-import Sidebar from "./shared/components/Sidebar";
-import ListElement from "./shared/components/ListElement";
-// import Datepicker from "./shared/components/Datepicker";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchToken } from "./redux/auth/auth-selectors";
+import { token } from "./shared/services/auth";
+import { useEffect } from "react";
+import authOperations from "./redux/auth/auth-operations";
 
 function App() {
+  const jwt = useSelector(fetchToken);
+  token.set(jwt);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.CheckedIsLoginCurrentUser(token))
+  }, []);
+  
   return (
     <div className="App">
       <Navbar />
       <Routes />
-      {/* <Sidebar /> */}
-      {/* <ListElement /> */}
-      {/*<Buttons />
-      <Inputs />
-      <Datepicker /> */}
     </div>
   );
 }

@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 import styles from "./Input.module.scss";
 import { useState } from "react";
 
-const Input = ({ label, placeholder, onChange, value, ...field }) => {
+const Input = ({
+  className,
+  label,
+  placeholder,
+  onChange,
+  value,
+  ...field
+}) => {
   const id = nanoid();
   // if (field.required) {
   //   field.placeholder += " *";
@@ -11,15 +18,15 @@ const Input = ({ label, placeholder, onChange, value, ...field }) => {
 
   const [input, setInput] = useState("");
 
-  // const handleChange = ({ target }) => {
-  //   setInput(target.value);
-  // };
+  const handleChange = ({ target }) => {
+    setInput(target.value);
+  };
 
   return (
     <div className={styles.formGroup}>
       <label
         className={`${styles.formLabel} ${
-          !(label || field.value) && styles.isHidden
+          !(label || input) && styles.isHidden
         }`}
         htmlFor={id}
       >
@@ -27,8 +34,11 @@ const Input = ({ label, placeholder, onChange, value, ...field }) => {
       </label>
       <input
         value={value}
-        onChange={onChange}
-        className={styles.formInput}
+        onChange={(e) => {
+          handleChange(e);
+          onChange(e);
+        }}
+        className={`${styles.formInput} ${className}`}
         placeholder={placeholder}
         {...field}
         id={id}

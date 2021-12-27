@@ -7,15 +7,23 @@
   padding: 0;
   width: 30px;
   height: 30px;
+  font-family: "Montserrat", sans-serif;
+
+  letter-spacing:0.04em;
   border-radius: 50%;
   cursor: pointer;
   border: none;
   background-color: #a6a6a6;
   @include tablet {
+    width: auto;
+    height: auto;
     background-color: transparent;
   }
 }
 .logoutIcon {
   height: 18px;
   width: 18px;
+  @include tablet {
+    margin-right: 10px;
+  }
 }
