@@ -12,7 +12,7 @@ const initialState = {
   name: "",
   duration: "",
   previous: false,
-  date:  format(new Date(), "yyyy-MM-dd")
+  date: format(new Date(), "yyyy-MM-dd"),
 };
 
 const AddNewSprintForm = ({ closeModal }) => {
@@ -32,13 +32,14 @@ const AddNewSprintForm = ({ closeModal }) => {
       formData.startDate = data.date;
       formData.endDate = format(addDays(date, +data.duration), "yyyy-MM-dd");
     }
-    dispatch(addSprint({
-       name: data.name,
-       startDate: formData.startDate,
-       endDate: formData.endDate,
+    dispatch(
+      addSprint({
+        name: data.name,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
         duration: Number(data.duration),
-      }));
-
+      })
+    );
 
     // addNewSprint({
     //   start: formData.startDate,

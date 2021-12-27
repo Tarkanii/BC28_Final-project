@@ -29,7 +29,7 @@ const SprintListPage = () => {
 
   // const history = useHistory();
   // const projectId = history.location.state.projectId
-  
+
   const projectId = pathname
     .split("/projects/")
     .join("/sprints")
@@ -89,7 +89,7 @@ const SprintListPage = () => {
                   <AddNewSprintForm />
                 </Modal>
               )}
-              <span className={styles.AddSprintText}>Создать спринт</span>
+              <span className={styles.AddSprintText}>Create a sprint</span>
             </div>
           </div>
           <div className={styles.AddMembers}>
@@ -106,16 +106,15 @@ const SprintListPage = () => {
               </Modal>
             )}
           </div>
+          <ul className={styles.SprintList}>
+            {sprintData &&
+              sprintData.map((el) => {
+                return (
+                  <SprintElement el={el} key={el._id} projectId={projectId} />
+                );
+              })}
+          </ul>
         </div>
-
-        <ul className={styles.SprintList}>
-          {sprintData &&
-            sprintData.map((el) => {
-              return (
-                <SprintElement el={el} key={el._id} projectId={projectId} />
-              );
-            })}
-        </ul>
       </div>
     </div>
   );
