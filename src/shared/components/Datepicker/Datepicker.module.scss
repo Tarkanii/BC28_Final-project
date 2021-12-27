@@ -13,7 +13,6 @@
 
   .DatePickerSection {
     margin-right: 30px;
-    max-width: 200px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -38,7 +37,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .DatePickerSection {
+    max-width: 200px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
+  .DatePickerSection {
+    max-width: 200px;
+  }
 }

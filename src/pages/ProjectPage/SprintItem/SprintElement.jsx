@@ -10,30 +10,42 @@ const SprintElement = ({ el, projectId }) => {
     dispatch(removeSprint(deleteId));
   };
 
- return (<li className={styles.SprintContainer} >
-    <Link
-            to={{
-              pathname: `/projects/${projectId}/sprints/${el._id}`,
-              state: {
-                projectId: projectId,
-                sprintId: el._id
-              },
-            }}
-            style={{ textDecoration: "none" }}
-          >
-                 <div className={styles.SprintCard}>
-                   <h3 className={styles.SprintName}>{el?.name}</h3>
-                   <p className={styles.Text}>Дата начала</p>
-                   <p className={styles.Text}>{el?.startDate}</p>
-                 <p className={styles.Text}>Дата окончания</p>
-                 <p className={styles.Text}>{el?.endDate}</p>
-                 <p className={styles.Text}>Длительность</p>
-                 <p className={styles.Text}>{el?.duration}</p>
-                 </div>
-                 </Link>
-                <DeleteButton className={styles.DeleteBtn} variant="secondary"  onClick={() => {
-              deleteProject(el._id);
-            }} />
-               </li>)
-}
+  return (
+    <li className={styles.SprintContainer}>
+      <Link
+        to={{
+          pathname: `/projects/${projectId}/sprints/${el._id}`,
+          state: {
+            projectId: projectId,
+            sprintId: el._id,
+          },
+        }}
+        style={{ textDecoration: "none" }}
+      >
+        <div className={styles.SprintCard}>
+          <h3 className={styles.SprintName}>{el?.name}</h3>
+          <div className={styles.SprintDesc}>
+            <p className={styles.Text}>Start date</p>
+            <p className={styles.Text}>{el?.startDate}</p>
+          </div>
+          <div className={styles.SprintDesc}>
+            <p className={styles.Text}>End date</p>
+            <p className={styles.Text}>{el?.endDate}</p>
+          </div>
+          <div className={styles.SprintDesc}>
+            <p className={styles.Text}>Duration</p>
+            <p className={styles.Text}>{el?.duration}</p>
+          </div>
+        </div>
+      </Link>
+      <DeleteButton
+        className={styles.DeleteBtn}
+        variant="secondary"
+        onClick={() => {
+          deleteProject(el._id);
+        }}
+      />
+    </li>
+  );
+};
 export default SprintElement;
