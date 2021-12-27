@@ -41,7 +41,7 @@ function Sidebar({ item = "init item" , projectId}) {
         }`}
       >
         {item === "project" && projects?.map((el) => (
-          <SidebarItem name={el.name} key={el._id}/>
+          <SidebarItem name={el.name} key={el._id} id={el._id} way={wayCheck} item={item}/>
         ))}
         {item === "sprint" && sprints?.map((el) => (
           <SidebarItem name={el.name} key={el._id} />
