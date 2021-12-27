@@ -178,10 +178,17 @@
   }
 }
 
-// .SprintDesc:not(:last-child) {
-//   margin-bottom: 10px;
-// }
-
+.descriptionWrapper {
+  margin-bottom:  30px;
+  font-size: 14px;
+  @include tablet {
+  font-size: 18px;
+  }
+  @include desktop {
+   max-width: 400px;
+   font-size: 18px;
+  }
+}
 .DeleteBtn {
   display: block;
   margin-left: auto;

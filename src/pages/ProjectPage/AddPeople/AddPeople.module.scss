@@ -1,0 +1,22 @@
+@import "../../../shared/styles/common.scss";
+
+.memberTitle{
+font-size:14px;
+line-height: 1.2;
+color: getColor("text-secondary");
+margin-bottom: 20px;
+}
+.membersItem{
+  font-size: 18px;
+  line-height: 1.2;
+  color: getColor("text-title");
+}
+.membersItem:not(:last-child){
+margin-bottom: 10px;
+}
+.membersList{
+
+}
+.input{
+  margin-bottom: 30px;
+}

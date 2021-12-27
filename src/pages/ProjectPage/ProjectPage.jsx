@@ -74,10 +74,8 @@ const SprintListPage = () => {
             ) : (
               <h2 className={styles.Title}>{projectInfo.name}</h2>
             )}
-
-            <p className={styles.text}>{projectInfo.description}</p>
             <EditButton className={styles.EditBtn} onClick={openInput} />
-
+            
             <div className={styles.AddSprint}>
               <AddButton
                 variant="item"
@@ -86,12 +84,14 @@ const SprintListPage = () => {
               />
               {showModal && (
                 <Modal closeModal={closeModal}>
-                  <AddNewSprintForm />
+                  <AddNewSprintForm closeModal={closeModal}/>
                 </Modal>
               )}
               <span className={styles.AddSprintText}>Create a sprint</span>
             </div>
-          </div>
+          </div><div className={styles.descriptionWrapper}>
+              <p className={styles.text}>{projectInfo.description}</p>
+            </div>
           <div className={styles.AddMembers}>
             <AddButton
               variant="member"
