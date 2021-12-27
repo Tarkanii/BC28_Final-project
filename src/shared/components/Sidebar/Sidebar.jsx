@@ -44,7 +44,7 @@ function Sidebar({ item = "init item" , projectId}) {
           <SidebarItem name={el.name} key={el._id} id={el._id} way={wayCheck} item={item}/>
         ))}
         {item === "sprint" && sprints?.map((el) => (
-          <SidebarItem name={el.name} key={el._id} />
+          <SidebarItem name={el.name} key={el._id} id={el._id} way={wayCheck} item={item}/>
         ))}
       </ul>
       {!MOB&&(<div className={styles.sidebar__footer}>

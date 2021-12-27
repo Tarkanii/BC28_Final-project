@@ -25,12 +25,12 @@ const Routes = () => {
         <PrivateRoute exact path="/projects" redirectTo="/login">
           <ProjectListPage />
         </PrivateRoute>
-        <PrivateRoute exact path="/projects/:id/sprints" redirectTo="/login">
+        <PrivateRoute exact path="/projects/:projectId/sprints" redirectTo="/login">
           <SprintsListPage />
         </PrivateRoute>
         <PrivateRoute
           exact
-          path="/projects/:id/sprints/:id"
+          path="/projects/:projectId/sprints/:sprintId"
           redirectTo="/login"
         >
           <SprintPage/>

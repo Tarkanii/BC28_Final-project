@@ -26,6 +26,7 @@ const SprintListPage = () => {
   const [showAddPeople, setShowAddPeople] = useState(false);
   const [isOpenInput, setIsOpenInput] = useState(false);
   const { pathname } = useLocation();
+  const location = useLocation();
 
   // const history = useHistory();
   // const projectId = history.location.state.projectId
@@ -50,9 +51,11 @@ const SprintListPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProjects());
+    setTimeout(() => {
+      dispatch(getAllProjects());
+    }, 300);
     dispatch(getProject(projectId));
-  }, []);
+  }, [location]);
 
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
   const closeModal = () => {
@@ -75,7 +78,7 @@ const SprintListPage = () => {
               <h2 className={styles.Title}>{projectInfo.name}</h2>
             )}
             <EditButton className={styles.EditBtn} onClick={openInput} />
-            
+
             <div className={styles.AddSprint}>
               <AddButton
                 variant="item"
@@ -84,14 +87,15 @@ const SprintListPage = () => {
               />
               {showModal && (
                 <Modal closeModal={closeModal}>
-                  <AddNewSprintForm closeModal={closeModal}/>
+                  <AddNewSprintForm closeModal={closeModal} />
                 </Modal>
               )}
               <span className={styles.AddSprintText}>Create a sprint</span>
             </div>
-          </div><div className={styles.descriptionWrapper}>
-              <p className={styles.text}>{projectInfo.description}</p>
-            </div>
+          </div>
+          <div className={styles.descriptionWrapper}>
+            <p className={styles.text}>{projectInfo.description}</p>
+          </div>
           <div className={styles.AddMembers}>
             <AddButton
               variant="member"
