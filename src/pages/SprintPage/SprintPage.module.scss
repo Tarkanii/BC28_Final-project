@@ -1,4 +1,45 @@
 @import "../../shared/styles/common.scss";
+.mainDiv {
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.dateLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 25px;
+  @include tablet {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+.date {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+
+  text-align: right;
+  color: getColor("text-secondary");
+  @include tablet {
+    margin-right: auto;
+  }
+
+  @include desktop {
+    margin-right: auto;
+  }
+}
+.paginator {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  color: rgba(24, 28, 39, 0.6);
+  @include tablet {
+    margin-right: 40px;
+  }
+}
 
 .Wrapper {
   position: relative;
@@ -8,13 +49,10 @@
 }
 
 .Title {
-  margin: 0;
-  margin-right: 20px;
   font-weight: 500;
   font-size: 26px;
-  line-height: 1.23;
+  line-height: 32px;
   letter-spacing: 0.04em;
-
   color: getColor("text-title");
 
   @include tablet {
@@ -25,13 +63,26 @@
 
 .Header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 19px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  @include tablet {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: auto;
+    justify-content: start;
+  }
 }
 
 .EditBtn {
+  margin-left: auto;
   @include tablet {
-    margin-right: auto;
+    margin-left: 20px;
   }
 
   @include desktop {
@@ -70,6 +121,12 @@
   letter-spacing: 0.04em;
 
   color: getColor("text-title");
+  @include tablet {
+  }
+
+  @include desktop {
+    margin-right: auto;
+  }
 }
 
 .MembersImg {
@@ -89,32 +146,43 @@
   }
 
   @include desktop {
-    width: 270px;
+    min-width: 870px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 30px;
   }
 }
 
 .SprintCard {
   padding: 20px 20px 10px 20px;
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0px;
+  }
 }
 
 .SprintName {
-  margin: 0;
-  margin-bottom: 20px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  text-align: center;
-
+  font-size: 18px;
+  line-height: 22px;
   letter-spacing: 0.04em;
-
+  padding-bottom: 8px;
   color: getColor("text-title");
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+  width: auto;
 
   @include tablet {
-    margin-bottom: 60px 0 30px;
+    margin-bottom: 0px;
     font-size: 18px;
     line-height: 1.22;
     letter-spacing: 0.04em;
     text-align: left;
+    width: 170px;
+    margin-bottom: 20px;
   }
 }
 
@@ -128,7 +196,38 @@
     margin-bottom: 13px;
   }
 }
+.SprintList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin: 0px -20px -20px 0px;
+
+    @include desktop {
+      margin-bottom: 10px;
+    }
+  }
+}
+.SprintContainer {
+  @include tablet {
+    margin: 0px 19px 20px 0px;
+    flex-basis: calc((100% - 40px) / 2);
+
+    @include desktop {
+      margin: 0px 0px 10px 0px;
+    }
+  }
+}
+.SprintForm {
+  max-width: 429px;
+}
 .SprintDesc {
   display: flex;
   justify-content: space-between;
@@ -147,33 +246,66 @@
   }
 }
 .Sprint {
-  flex-grow: 1;
-  padding-top: 30px;
+  margin-top: 30px;
   @include tablet {
-    padding-top: 40px;
-    padding-left: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
   }
   @include desktop {
-    padding-left: 70px;
+    margin-left: 70px;
   }
 }
 .Text {
-  margin: 0;
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 
   color: getColor("text-primary");
 
   @include tablet {
+    display: flex;
+    justify-content: space-between;
     max-width: 95px;
     font-size: 14px;
     line-height: 1.21;
   }
 
   @include desktop {
-    max-width: none;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
   }
+}
+.TextHours {
+  display: flex;
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+  }
+
+  @include desktop {
+    margin-left: 20px;
+  }
+}
+.planingDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 // .SprintDesc:not(:last-child) {
@@ -186,13 +318,36 @@
 }
 
 .AddSprint {
+  @include tablet {
+    margin-left: auto;
+  }
   @include desktop {
     display: flex;
     align-items: center;
     position: static;
   }
 }
+.graphicBtn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
 
+  background: getColor("accent");
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  border-radius: 25px;
+
+  @include tablet {
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+  }
+
+  @include desktop {
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+  }
+}
 .AddSprintBtn {
   position: fixed;
   right: 20px;
@@ -229,28 +384,6 @@
   }
 }
 
-.SprintList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    // justify-content: space-between;
-
-    @include desktop {
-      gap: 30px;
-    }
-  }
-}
-
-.SprintForm {
-  max-width: 429px;
-}
 .Form {
   display: flex;
   flex-direction: column;
@@ -366,103 +499,24 @@
     width: 200px;
   }
 }
-// @media screen and (min-width: 768px) {
-//   //   .Title {
-//   //     font-size: 36px;
-//   //     line-height: 1.22;
-//   //   }
-//   //   .SprintContainer {
-//   //     width: 216px;
-//   //     margin-bottom: 0;
-//   //   }
-//   //   .SprintList {
-//   //     display: flex;
-//   //     flex-wrap: wrap;
-//   //     gap: 20px;
-//   //   }
+.describeDiv {
+  display: none;
+  @include desktop {
+    display: flex;
+    flex-direction: row;
 
-//   //   .Header {
-//   //     display: flex;
-//   //   }
-
-//   //   .EditBtn {
-//   //     margin-right: auto;
-//   //   }
-//   //   .AddSprintBtn {
-//   //     position: static;
-//   //     // position: absolute;
-//   //     // top: 40px;
-//   //     // right: 40px;
-//   //   }
-//   //   .SprintName {
-//   //     margin-bottom: 28px;
-//   //     font-size: 18px;
-//   //     line-height: 1.22;
-//   //     letter-spacing: 0.04em;
-//   //     text-align: left;
-//   //   }
-
-//   //   .Text {
-//   //     max-width: 95px;
-//   //     font-size: 14px;
-//   //     line-height: 1.21;
-//   //   }
-//   //   .SprintDesc:not(:last-child) {
-//   //     margin-bottom: 20px;
-//   //   }
-
-//   //   .SprintDesc:first-child {
-//   //     margin-bottom: 36px;
-//   //   }
-
-//   //   .List {
-//   //     margin-bottom: 13px;
-//   //   }
-// }
-
-// @media screen and (min-width: 1280px) {
-//   //   .AddSprint {
-//   //     display: flex;
-//   //     align-items: center;
-//   //     position: static;
-//   //     // top: 40px;
-//   //     // right: 100px;
-//   //   }
-
-//   //   .Header {
-//   //     display: flex;
-//   //   }
-
-//   //   .EditBtn {
-//   //     margin-right: auto;
-//   //   }
-//   //   .AddSprintText {
-//   //     display: inline-block;
-//   //     position: static;
-//   //     // top: 55px;
-//   //     // right: 100px;
-//   //     font-weight: 500;
-//   //     font-size: 18px;
-//   //     line-height: 1.22;
-//   //     letter-spacing: 0.04em;
-
-//   //     color: getColor("text-title");
-//   //   }
-//   //   .AddSprintBtn {
-//   //     position: static;
-//   //     margin-right: 20px;
-//   //     // right: 280px;
-//   //   }
-
-//   //   .SprintContainer {
-//   //     width: 270px;
-//   //   }
-
-//   //   .SprintDesc:not(:last-child) {
-//   //     margin-bottom: 20px;
-//   //   }
-
-//   //   .Text {
-//   //     max-width: none;
-//   //   }
-// }
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: getColor("text-title");
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}
+.describeText {
+  margin-right: 93px;
+  width: 107px;
+}

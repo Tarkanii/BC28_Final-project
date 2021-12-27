@@ -9,19 +9,20 @@ import {
   getAllSprints,
   getSprint,
 } from "../../redux/sprints/sprints-operations";
-import {
-  useHistory,
-  useLocation,useParams
-} from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import { getSprintInfo, getTasks } from "../../redux/sprints/sprints-selectors";
 import CreateTask from "./AddTask/CreateTask";
 import TaskItem from "./TaskItem/TaskItem";
+import GraphicButton from "../../shared/components/Buttons/graphicButton/GraphicButton";
 
 const SprintPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showAddPeople, setShowAddPeople] = useState(false);
   const [isOpenInput, setIsOpenInput] = useState(false);
 
+  const СurrDate = () => {
+    return new Date().toLocaleDateString();
+  };
   const history = useHistory();
   const location = useLocation();
   const params = useParams();
@@ -32,7 +33,7 @@ const SprintPage = () => {
   const tasks = useSelector(getTasks);
 
   const dispatch = useDispatch();
-    useEffect(() => {
+  useEffect(() => {
     console.log();
     dispatch(getAllSprints(projectId));
     dispatch(getSprint(sprintId));
@@ -55,38 +56,51 @@ const SprintPage = () => {
   return (
     <div className="container">
       <div className={styles.Wrapper}>
-        <Sidebar item="sprint" projectId={projectId}/>
-        <div className={styles.Sprint}>
-          <div className={styles.Header}>
-            {isOpenInput ? (
-              <ChangeName onClick={openInput} isSprint="true" />
-            ) : (
-              <h2 className={styles.Title}>{sprintInfo.name}</h2>
-            )}
-
-            <EditButton className={styles.EditBtn} onClick={openInput} />
-            <div className={styles.AddSprint}>
-              <AddButton
-                variant="item"
-                className={styles.AddSprintBtn}
-                onClick={toggleModal}
-              />
-              {showModal && (
-                <Modal closeModal={toggleModal}>
-                  <CreateTask onClick={toggleModal} />
-                </Modal>
+        <Sidebar item="sprint" />
+        <div className={styles.mainDiv}>
+          <div className={styles.dateLine}>
+            <p className={styles.paginator}> {`<1/1>`} </p>
+            <p className={styles.date}>{СurrDate()}</p>
+          </div>
+          <div className={styles.Sprint}>
+            <div className={styles.Header}>
+              {isOpenInput ? (
+                <ChangeName onClick={openInput} isSprint="true" />
+              ) : (
+                <h2 className={styles.Title}>{sprintInfo.name}</h2>
               )}
-              <span className={styles.AddSprintText}>Створити задачу</span>
+
+              <EditButton className={styles.EditBtn} onClick={openInput} />
+
+              <div className={styles.AddSprint}>
+                <AddButton
+                  variant="item"
+                  className={styles.AddSprintBtn}
+                  onClick={toggleModal}
+                />
+                <GraphicButton className={styles.graphicBtn} />
+                {showModal && (
+                  <Modal closeModal={toggleModal}>
+                    <CreateTask onClick={toggleModal} />
+                  </Modal>
+                )}
+                <span className={styles.AddSprintText}>Створити задачу</span>
+              </div>
             </div>
+            <div className={styles.describeDiv}>
+              <p className={styles.describeText}>Задача</p>
+              <p className={styles.describeText}>Заплановано годин</p>
+              <p className={styles.describeText}>Витрачено годин/день</p>
+              <p className={styles.describeText}>витрачено годин</p>
+            </div>
+            <ul className={styles.SprintList}>
+              {tasks &&
+                tasks.map((el) => {
+                  return <TaskItem el={el} key={el._id} />;
+                })}
+            </ul>
           </div>
         </div>
-
-        <ul className={styles.SprintList}>
-          {tasks &&
-            tasks.map((el) => {
-              return <TaskItem el={el} key={el._id} />;
-            })}
-        </ul>
       </div>
     </div>
   );
