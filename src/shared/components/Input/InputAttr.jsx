@@ -1,7 +1,7 @@
 const InputAttr = {
   email: {
     name: "email",
-    placeholder: "E-mail",
+    placeholder: "Enter e-mail",
     pattern: "[a-zA-Z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*",
     required: true,
   },
@@ -17,19 +17,21 @@ const InputAttr = {
   name: {
     name: "name",
     placeholder: "Input name",
-    pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+    maxlength:"30",
+    // pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
     required: true,
   },
   description: {
     name: "description",
     placeholder: "Description",
-    pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+    maxlength:"40",
+    // pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
     required: true,
   },
   hours: {
     name: "hours",
     placeholder: "Scheduled hours",
-    // pattern: "^(?=.*d)",
+    type: Number,
     required: true,
   }
 };
