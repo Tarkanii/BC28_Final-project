@@ -5,7 +5,6 @@ import styles from "./SidebarItem.module.scss";
 const SidebarItem = ({ name = "init name", id, way, item }) => {
 
   const path = `${way}/${id}/${item === "project" ? "sprints" : ""}`;
-
   return (
   <li className={styles.item}>
       <Link to={{pathname:path}} className={styles.link}>

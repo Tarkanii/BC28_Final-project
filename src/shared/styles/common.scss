@@ -28,3 +28,11 @@ body {
   background-color: getColor("bg-primary")
 
 }
+.react-datepicker__header{
+  text-align: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #aeaeae;
+    border-top-left-radius: 0.3rem;
+    padding: 8px 0;
+    position: relative;
+}

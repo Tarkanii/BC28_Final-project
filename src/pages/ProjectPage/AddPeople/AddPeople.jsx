@@ -24,14 +24,14 @@ export default function AddPeople({ onClick, projectId }) {
       e.target.reset();
       const label = e.target.firstChild.firstChild;
       const initialLabel = label.innerHTML;
-      console.log(initialLabel);
+
       label.innerHTML="This member is already added";
       label.classList.add(styles.error)
       setTimeout(()=>{
         label.innerHTML=initialLabel;
         label.classList.remove(styles.error);
       },5000)
-      console.log(e.target.firstChild.firstChild);
+
 
       return ;
     }

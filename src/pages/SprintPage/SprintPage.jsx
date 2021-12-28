@@ -13,7 +13,6 @@ import { useHistory, useLocation, useParams } from "react-router-dom";
 import { getSprintInfo, getTasks } from "../../redux/sprints/sprints-selectors";
 import CreateTask from "./AddTask/CreateTask";
 import TaskItem from "./TaskItem/TaskItem";
-import GraphicButton from "../../shared/components/Buttons/graphicButton/GraphicButton";
 
 const SprintPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +33,6 @@ const SprintPage = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log();
     dispatch(getAllSprints(projectId));
     dispatch(getSprint(sprintId));
   }, [location]);
@@ -78,7 +76,6 @@ const SprintPage = () => {
                   className={styles.AddSprintBtn}
                   onClick={toggleModal}
                 />
-                <GraphicButton className={styles.graphicBtn} />
                 {showModal && (
                   <Modal closeModal={toggleModal}>
                     <CreateTask onClick={toggleModal} />

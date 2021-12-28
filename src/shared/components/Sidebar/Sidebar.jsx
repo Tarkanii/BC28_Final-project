@@ -10,19 +10,18 @@ import { useSelector } from "react-redux";
 import { getProjectArray } from "../../../redux/projects/projects-selectors";
 import { getSprintData } from "../../../redux/sprints/sprints-selectors";
 import AddNewSprintForm from "../../../pages/ProjectPage/AddSprint/AddNewSprintForm";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Sidebar({ item = "init item" , projectId}) {
   const {MOB} = useMedia();
   const title = `Show ${item}s`;
-
+const params = useParams();
   const [isOpen, setIsOpen] = useState(false);
 
   const onCLick = () => {
     setIsOpen(!isOpen);
   };  
-  console.log(projectId);
-  const wayCheck = (item === "project") ? "/projects" : `/projects/${projectId}/sprints`;
+  const wayCheck = (item === "project") ? "/projects" : `/projects/${params.projectId}/sprints`;
  
 
   const projects = useSelector(getProjectArray);
