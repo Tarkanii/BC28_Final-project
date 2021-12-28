@@ -21,7 +21,7 @@ export default function CreateProject({ onClick }) {
 
   return (
     <>
-      <h2 className={s.title}>Створення проекту</h2>
+      <h2 className={s.title}>Create a project</h2>
       <form onSubmit={handleSubmit}>
         <Input {...InputAttr.name} onChange={handleChange} value={data.name} />
         <Input
@@ -29,10 +29,10 @@ export default function CreateProject({ onClick }) {
           onChange={handleChange}
           value={data.description}
         />
-        <SubmitButton text="Готово" className={s.submitBtn} />
+        <SubmitButton text="Ready" className={s.submitBtn} />
       </form>
       <button type="button" className={s.cancelBtn} onClick={onClick}>
-        Відміна
+        Cancel
       </button>
     </>
   );
