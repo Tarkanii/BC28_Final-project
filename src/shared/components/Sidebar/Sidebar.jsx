@@ -21,12 +21,12 @@ function Sidebar({ item = "init item" , projectId}) {
   const onCLick = () => {
     setIsOpen(!isOpen);
   };  
-  
-  const wayCheck = (item === "project") ? "/projects" : `/projects/${projectId}/sprints`
+  console.log(projectId);
+  const wayCheck = (item === "project") ? "/projects" : `/projects/${projectId}/sprints`;
  
 
   const projects = useSelector(getProjectArray);
-  const sprints =  useSelector(getSprintData)
+  const sprints =  useSelector(getSprintData);
   return (
     <div className={styles.sidebar__wrapper}>
       <Link className={styles.sidebar__goBackLink}  to={{pathname:wayCheck}}>

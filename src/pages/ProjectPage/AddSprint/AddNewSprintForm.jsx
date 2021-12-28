@@ -37,7 +37,7 @@ const AddNewSprintForm = ({ closeModal }) => {
         name: data.name,
         startDate: formData.startDate,
         endDate: formData.endDate,
-        duration: Number(data.duration),
+        sprintDuration: Number(data.duration),
       })
     );
 

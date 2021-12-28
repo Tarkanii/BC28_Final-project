@@ -20,7 +20,7 @@ export default function ProjectListPage() {
   useEffect(() => {
     setTimeout(() => {
       dispatch(getAllProjects());
-    }, 300);
+    }, 200);
         
   }, []);
 
