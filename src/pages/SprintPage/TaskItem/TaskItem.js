@@ -24,7 +24,7 @@ const {DESK} = useMedia();
         {/* <p className={styles.Text}>{el?.endDate}</p> */}
         <div className={styles.spentBox}>
           <p className={styles.Text}>Spent hours</p>
-          <input className={styles.input}>{el?.spentHours}</input>
+          <input className={styles.input} initial={el?.spentHours}></input>
         </div>
        <div className={styles.owner}> {!DESK&&<p className={styles.executor}>Executor</p>}
           {/* <p className={styles.executor}>{el.owner}</p> */}
