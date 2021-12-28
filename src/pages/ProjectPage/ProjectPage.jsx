@@ -53,8 +53,8 @@ const SprintListPage = () => {
   useEffect(() => {
     setTimeout(() => {
       dispatch(getAllProjects());
-    }, 300);
-    dispatch(getProject(projectId));
+      dispatch(getProject(projectId));
+    }, 500);
   }, [location]);
 
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
