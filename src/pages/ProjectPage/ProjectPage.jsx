@@ -13,7 +13,7 @@ import {
   getProject,
 } from "../../redux/projects/projects-operations";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getSprintData } from "../../redux/sprints/sprints-selectors";
 import { getProjectInfo } from "../../redux/projects/projects-selectors.js";
@@ -26,15 +26,18 @@ const SprintListPage = () => {
   const [showAddPeople, setShowAddPeople] = useState(false);
   const [isOpenInput, setIsOpenInput] = useState(false);
   const { pathname } = useLocation();
-
+  const location = useLocation();
+const params = useParams();
   // const history = useHistory();
   // const projectId = history.location.state.projectId
-  
-  const projectId = pathname
-    .split("/projects/")
-    .join("/sprints")
-    .split("/sprints")
-    .join("");
+
+  // const projectId = pathname
+  //   .split("/projects/")
+  //   .join("/sprints")
+  //   .split("/sprints")
+  //   .join("");
+  const projectId = params.projectId;
+  console.log(projectId);
   //трудные времена трудеют трудных решений ^^^^ ///
 
   const sprintData = useSelector(getSprintData);
@@ -50,9 +53,11 @@ const SprintListPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProjects());
-    dispatch(getProject(projectId));
-  }, []);
+    setTimeout(() => {
+      dispatch(getAllProjects());
+      dispatch(getProject(projectId));
+    }, 200);
+  }, [location]);
 
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;
   const closeModal = () => {
@@ -74,8 +79,6 @@ const SprintListPage = () => {
             ) : (
               <h2 className={styles.Title}>{projectInfo.name}</h2>
             )}
-
-            <p className={styles.text}>{projectInfo.description}</p>
             <EditButton className={styles.EditBtn} onClick={openInput} />
 
             <div className={styles.AddSprint}>
@@ -86,11 +89,14 @@ const SprintListPage = () => {
               />
               {showModal && (
                 <Modal closeModal={closeModal}>
-                  <AddNewSprintForm />
+                  <AddNewSprintForm closeModal={closeModal} />
                 </Modal>
               )}
-              <span className={styles.AddSprintText}>Создать спринт</span>
+              <span className={styles.AddSprintText}>Create a sprint</span>
             </div>
+          </div>
+          <div className={styles.descriptionWrapper}>
+            <p className={styles.text}>{projectInfo.description}</p>
           </div>
           <div className={styles.AddMembers}>
             <AddButton
@@ -106,16 +112,15 @@ const SprintListPage = () => {
               </Modal>
             )}
           </div>
+          <ul className={styles.SprintList}>
+            {sprintData &&
+              sprintData.map((el) => {
+                return (
+                  <SprintElement el={el} key={el._id} projectId={projectId} />
+                );
+              })}
+          </ul>
         </div>
-
-        <ul className={styles.SprintList}>
-          {sprintData &&
-            sprintData.map((el) => {
-              return (
-                <SprintElement el={el} key={el._id} projectId={projectId} />
-              );
-            })}
-        </ul>
       </div>
     </div>
   );

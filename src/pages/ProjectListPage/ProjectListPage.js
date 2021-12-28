@@ -20,21 +20,21 @@ export default function ProjectListPage() {
   useEffect(() => {
     setTimeout(() => {
       dispatch(getAllProjects());
-    }, 100);
-      
+    }, 200);
+        
   }, []);
 
   return (
     <div className="container">
       <div className={s.createContainer}>
-        <h2 className={s.title}>Проекти</h2>
+        <h2 className={s.title}>Projects</h2>
         <AddButton
           className={s.Addbtn}
           variant="item"
           type="button"
           onClick={onCLick}
         />
-        <h3 className={s.createTitle}>Створити проект</h3>
+        <h3 className={s.createTitle}>Create a project</h3>
       </div>
       <ul className={s.list}>
         <ProjectItems />

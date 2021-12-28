@@ -15,7 +15,7 @@ const Chart = (sprint) => {
     const datesRange = (start, end) => {
       let startDate = new Date(start + " 00:00:00 UTC");
       let endDate = new Date(end + " 00:00:00 UTC");
-      const options = {
+      const options = { 
         month: "short",
         day: "numeric",
       };

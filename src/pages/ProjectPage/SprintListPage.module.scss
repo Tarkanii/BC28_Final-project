@@ -4,6 +4,7 @@
   position: relative;
   @include tablet {
     display: flex;
+    position: relative;
   }
 }
 
@@ -132,6 +133,7 @@
 .SprintDesc {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -176,10 +178,17 @@
   }
 }
 
-// .SprintDesc:not(:last-child) {
-//   margin-bottom: 10px;
-// }
-
+.descriptionWrapper {
+  margin-bottom:  30px;
+  font-size: 14px;
+  @include tablet {
+  font-size: 18px;
+  }
+  @include desktop {
+   max-width: 400px;
+   font-size: 18px;
+  }
+}
 .DeleteBtn {
   display: block;
   margin-left: auto;
@@ -233,7 +242,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 
   @include tablet {
     display: flex;
@@ -278,9 +286,10 @@
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+
   @include tablet {
     flex-direction: row;
+    align-items: flex-end;
   }
 }
 
@@ -366,103 +375,3 @@
     width: 200px;
   }
 }
-// @media screen and (min-width: 768px) {
-//   //   .Title {
-//   //     font-size: 36px;
-//   //     line-height: 1.22;
-//   //   }
-//   //   .SprintContainer {
-//   //     width: 216px;
-//   //     margin-bottom: 0;
-//   //   }
-//   //   .SprintList {
-//   //     display: flex;
-//   //     flex-wrap: wrap;
-//   //     gap: 20px;
-//   //   }
-
-//   //   .Header {
-//   //     display: flex;
-//   //   }
-
-//   //   .EditBtn {
-//   //     margin-right: auto;
-//   //   }
-//   //   .AddSprintBtn {
-//   //     position: static;
-//   //     // position: absolute;
-//   //     // top: 40px;
-//   //     // right: 40px;
-//   //   }
-//   //   .SprintName {
-//   //     margin-bottom: 28px;
-//   //     font-size: 18px;
-//   //     line-height: 1.22;
-//   //     letter-spacing: 0.04em;
-//   //     text-align: left;
-//   //   }
-
-//   //   .Text {
-//   //     max-width: 95px;
-//   //     font-size: 14px;
-//   //     line-height: 1.21;
-//   //   }
-//   //   .SprintDesc:not(:last-child) {
-//   //     margin-bottom: 20px;
-//   //   }
-
-//   //   .SprintDesc:first-child {
-//   //     margin-bottom: 36px;
-//   //   }
-
-//   //   .List {
-//   //     margin-bottom: 13px;
-//   //   }
-// }
-
-// @media screen and (min-width: 1280px) {
-//   //   .AddSprint {
-//   //     display: flex;
-//   //     align-items: center;
-//   //     position: static;
-//   //     // top: 40px;
-//   //     // right: 100px;
-//   //   }
-
-//   //   .Header {
-//   //     display: flex;
-//   //   }
-
-//   //   .EditBtn {
-//   //     margin-right: auto;
-//   //   }
-//   //   .AddSprintText {
-//   //     display: inline-block;
-//   //     position: static;
-//   //     // top: 55px;
-//   //     // right: 100px;
-//   //     font-weight: 500;
-//   //     font-size: 18px;
-//   //     line-height: 1.22;
-//   //     letter-spacing: 0.04em;
-
-//   //     color: getColor("text-title");
-//   //   }
-//   //   .AddSprintBtn {
-//   //     position: static;
-//   //     margin-right: 20px;
-//   //     // right: 280px;
-//   //   }
-
-//   //   .SprintContainer {
-//   //     width: 270px;
-//   //   }
-
-//   //   .SprintDesc:not(:last-child) {
-//   //     margin-bottom: 20px;
-//   //   }
-
-//   //   .Text {
-//   //     max-width: none;
-//   //   }
-// }

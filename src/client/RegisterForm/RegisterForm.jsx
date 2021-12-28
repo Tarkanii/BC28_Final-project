@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
   return (
     <div className={`${styles.authContainer} container`}>
-      <h1 className={styles.authTitle}>Реєстрація </h1>
+      <h1 className={styles.authTitle}>Registration </h1>
       <form
         onSubmit={handleSubmit}
         className={styles.authForm}
@@ -46,39 +46,39 @@ const RegisterForm = () => {
           value={data.email}
           
         />
-        <p className={styles.inputText}>Пароль</p>
+        <p className={styles.inputText}>Password</p>
         <input
           type="password"
           className={styles.authInput}
           onChange={handleChange}
           name="password"
           required
-          placeholder="Пароль"
+          placeholder="Password"
           value={data.password}
         />
 
-        <p className={styles.inputText}>Повторiть пароль</p>
+        <p className={styles.inputText}>Repeat password</p>
         <input
           type="password"
           className={styles.authInput}
           onChange={handleChange}
           name="passwordCheck"
           required
-          placeholder="Повторiть пароль"
+          placeholder="Repeat password"
           value={data.passwordCheck}
         />
 
         <div className={styles.buttonContainer}>
           <button
             className={`${styles.buttonContainer} ${styles.SubmitButtonPrimary} `}
-            text="Вход"
+            text="Enter"
             type="submit"
             variant="primary"
           >
-            Зареєструватися
+            Register
           </button>
           {/* <p className={styles.authText}>Маєте акаунт? <a href="" className={styles.authLink}>Увiйти</a></p> */}
-          <p className={styles.authText}>Маєте акаунт? <Link to="/login" className={styles.authText}>Увiйти</Link></p> 
+          <p className={styles.authText}>Do you have an account? <Link to="/login" className={styles.authText}>Log in</Link></p> 
          </div>
 
       </form>

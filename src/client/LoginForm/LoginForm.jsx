@@ -17,7 +17,7 @@ const LoginForm = () => {
 
   return (
     <div className={`${styles.authContainer} container`}>
-      <h1 className={styles.authTitle}>Вxiд</h1>
+      <h1 className={styles.authTitle}>Enter</h1>
       <form onSubmit={handleSubmit} className={styles.authForm} autoComplete="off">
       <p className={styles.inputText}>E-mail</p>
       <input type="email"
@@ -28,26 +28,26 @@ const LoginForm = () => {
           placeholder="Email"
           value={data.email}
         />
-      <p className={styles.inputText}>Пароль</p>  
+      <p className={styles.inputText}>Password</p>  
       <input type="password"
           className={styles.authInput}
           onChange={handleChange}
           name="password"
           required
-          placeholder="Пароль"
+          placeholder="Password"
           value={data.password}
         />
           
         <div className={styles.buttonContainer}> 
            <button
             className={`${styles.buttonContainer} ${styles.SubmitButtonPrimary} `}
-            text="Вход"
+            text="Enter"
             type="submit"
             variant="primary"
-          >Увiйти
+          >Enter
           </button>
           {/* <p className={styles.authText}>Немає акаунту? <a href="" className={styles.authLink}>Зареєструватись</a></p> */}
-          <p className={styles.authText}>Немає акаунту? <Link to="/signup" className={styles.authText}>Зареєструватись</Link></p> 
+          <p className={styles.authText}>No accaunt? <Link to="/signup" className={styles.authText}>Register</Link></p> 
          </div>
       </form>
     </div>

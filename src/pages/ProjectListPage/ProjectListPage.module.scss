@@ -50,9 +50,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+ @include tablet{
   background: url("../../assets/projectCard/wave.png");
   background-repeat: repeat-x;
   animation: animate 30s linear infinite;
+ }
 
   @keyframes animate {
     0% {
@@ -123,23 +125,24 @@
   font-size: 16px;
   font-weight: 800;
   color: getColor("text-white");
-
+  margin-bottom: 6px;
   @include tablet {
     font-size: 26px;
+    margin-bottom: 10px;
+  }
+  @include desktop {
+    font-size: 26px;
+    margin-bottom: 20px;
   }
 }
 
-.description {
-  display: block;
-  // position: absolute;
+.description { 
   height: 100%;
   width: 100%;
   font-size: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
-  // transform: translateY(100%);
-  // transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
   color: getColor("text-white");
   @include tablet {
     font-size: 14px;
@@ -154,7 +157,7 @@
 }
 
 .Addbtn {
-  // position: absolute;
+  position: fixed;
   right: 30px;
   bottom: 30px;
   @include tablet {
