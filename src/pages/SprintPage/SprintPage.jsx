@@ -59,7 +59,7 @@ const SprintPage = () => {
         <Sidebar item="sprint" />
         <div className={styles.mainDiv}>
           <div className={styles.dateLine}>
-            <p className={styles.paginator}> {`<1/1>`} </p>
+            {/* <p className={styles.paginator}> {`<1/1>`} </p> */}
             <p className={styles.date}>{СurrDate()}</p>
           </div>
           <div className={styles.Sprint}>
@@ -100,10 +100,11 @@ const SprintPage = () => {
                 })}
             </ul>
           </div>
+          </div>
         </div>
       </div>
-    </div>
   );
+  
 };
 
 export default SprintPage;
