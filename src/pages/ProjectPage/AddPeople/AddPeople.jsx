@@ -8,12 +8,15 @@ import { useDispatch } from "react-redux";
 import { addPeople } from "../../../redux/projects/projects-operations";
 import { useSelector } from "react-redux";
 import { getPeople } from "../../../redux/projects/projects-selectors";
-
 export default function AddPeople({ onClick, projectId }) {
   const dispatch = useDispatch();
   const people = useSelector(getPeople);
-  const onSubmit = (data) => {
-    dispatch(addPeople({ projectId, data }));
+  const onSubmit = (e,data) => {
+    console.log(people);
+    if (people.find(item=>item.email===data.email)) {
+      return;
+    }
+    return dispatch(addPeople({projectId,data}));
   };
 
   const [data, handleChange, handleSubmit] = useForm({ email: "" }, onSubmit);
@@ -30,9 +33,10 @@ export default function AddPeople({ onClick, projectId }) {
         />
         <h3 className={styles.memberTitle}>Added members:</h3>
         <ul className={styles.memberList}>
-          {people.map((el) => (
-            <li className={styles.membersItem}>{el.email}</li>
-          ))}
+          {people.map((el) => {
+            console.log(el);
+            return <li key={el._id} className={styles.membersItem}>{el.email}</li>
+        })}
         </ul>
         <SubmitButton text="Ready" className={s.submitBtn} />
         <button type="button" className={s.cancelBtn} onClick={onClick}>
