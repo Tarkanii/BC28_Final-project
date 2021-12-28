@@ -31,7 +31,7 @@ const InputAttr = {
   hours: {
     name: "hours",
     placeholder: "Scheduled hours",
-    type: Number,
+    type: "number",
     required: true,
   }
 };
