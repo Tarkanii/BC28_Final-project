@@ -84,14 +84,14 @@ const SprintPage = () => {
                     <CreateTask onClick={toggleModal} />
                   </Modal>
                 )}
-                <span className={styles.AddSprintText}>Створити задачу</span>
+                <span className={styles.AddSprintText}>Create a task</span>
               </div>
             </div>
             <div className={styles.describeDiv}>
-              <p className={styles.describeText}>Задача</p>
-              <p className={styles.describeText}>Заплановано годин</p>
-              <p className={styles.describeText}>Витрачено годин/день</p>
-              <p className={styles.describeText}>витрачено годин</p>
+              <p className={styles.describeText}>Task</p>
+              <p className={styles.describeText}>Scheduled hours</p>
+              <p className={styles.describeText}>Spent hours</p>
+              <p className={styles.describeText}>Executor</p>
             </div>
             <ul className={styles.SprintList}>
               {tasks &&

@@ -13,7 +13,7 @@ import {
   getProject,
 } from "../../redux/projects/projects-operations";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getSprintData } from "../../redux/sprints/sprints-selectors";
 import { getProjectInfo } from "../../redux/projects/projects-selectors.js";
@@ -27,15 +27,17 @@ const SprintListPage = () => {
   const [isOpenInput, setIsOpenInput] = useState(false);
   const { pathname } = useLocation();
   const location = useLocation();
-
+const params = useParams();
   // const history = useHistory();
   // const projectId = history.location.state.projectId
 
-  const projectId = pathname
-    .split("/projects/")
-    .join("/sprints")
-    .split("/sprints")
-    .join("");
+  // const projectId = pathname
+  //   .split("/projects/")
+  //   .join("/sprints")
+  //   .split("/sprints")
+  //   .join("");
+  const projectId = params.projectId;
+  console.log(projectId);
   //трудные времена трудеют трудных решений ^^^^ ///
 
   const sprintData = useSelector(getSprintData);
@@ -54,7 +56,7 @@ const SprintListPage = () => {
     setTimeout(() => {
       dispatch(getAllProjects());
       dispatch(getProject(projectId));
-    }, 500);
+    }, 200);
   }, [location]);
 
   // const menu = <div className={styles.modalItems}>{AddNewSprintForm}</div>;

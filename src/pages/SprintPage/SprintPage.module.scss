@@ -150,6 +150,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     padding: 25px 30px;
   }
 }
@@ -159,6 +160,7 @@
   @include desktop {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: baseline;
     padding: 0px;
   }
@@ -183,6 +185,10 @@
     text-align: left;
     width: 170px;
     margin-bottom: 20px;
+  }
+  @include desktop{
+    width: 300px;
+    margin-right: 70px;
   }
 }
 
@@ -302,10 +308,58 @@
     margin-left: 20px;
   }
 }
+.spentBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  width: 100%;
+  @include desktop{
+    flex-direction: column;
+    justify-self: start;
+    align-items: center;
+    margin: 0;
+  }
+  }
+  .input{
+    max-width: 50px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: getColor("text-primary");
+    border: none;
+    border-bottom: 1px solid getColor("input-line");
+    @include desktop{
+margin-right: 70px;
+    }
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid getColor("accent");
+      transition: border-color 250ms linear;
+    }
+  }
+  .owner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 .planingDiv {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @include desktop{
+    margin-right: 80px;
+  }
+}
+.executor{
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 00.04em;
+  @include tablet {
+    font-size: 14px;
+  }
 }
 
 // .SprintDesc:not(:last-child) {
@@ -314,7 +368,7 @@
 
 .DeleteBtn {
   display: block;
-  margin-left: auto;
+  // margin-left: auto;
 }
 
 .AddSprint {
@@ -520,3 +574,4 @@
   margin-right: 93px;
   width: 107px;
 }
+
