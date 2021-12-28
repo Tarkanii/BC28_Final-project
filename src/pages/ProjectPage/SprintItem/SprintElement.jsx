@@ -34,7 +34,7 @@ const SprintElement = ({ el, projectId }) => {
           </div>
           <div className={styles.SprintDesc}>
             <p className={styles.Text}>Duration</p>
-            <p className={styles.Text}>{el?.duration}</p>
+            <p className={styles.Text}>{el?.sprintDuration}</p>
           </div>
         </div>
       </Link>

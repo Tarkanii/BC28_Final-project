@@ -37,7 +37,7 @@ const params = useParams();
   //   .split("/sprints")
   //   .join("");
   const projectId = params.projectId;
-  console.log(projectId);
+
   //трудные времена трудеют трудных решений ^^^^ ///
 
   const sprintData = useSelector(getSprintData);

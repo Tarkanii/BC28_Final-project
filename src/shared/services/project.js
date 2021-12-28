@@ -25,7 +25,7 @@ export async function updateMembers(id, credentials) {
 }
 
 export const participants = ({projectId,data}) => {
-  console.log(data);
+ 
 return  instance.patch(`./projects/updateParticipants/${projectId}`, data);
 }
 
